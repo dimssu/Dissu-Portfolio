@@ -5,7 +5,7 @@ const Layout = () => {
   return (
     <>
       <Navbar />
-      <div style={{ padding: '2rem' }}>
+      <div>
         <Outlet />
       </div>
     </>
