@@ -1,0 +1,89 @@
+import { useState } from "react";
+import styles from "./ProjectsViewer.module.scss";
+
+type Project = {
+  image: string;
+  name: string;
+  tech: string[];
+  description: string;
+  live: string;
+};
+
+const projects: Project[] = [
+  {
+    image: "https://placehold.co/400x200/6e5494/fff?text=Dissu+Talks",
+    name: "Dissu Talks",
+    tech: ["ReactJs", "Typescript", "clsx", "uuid", "Vite"],
+    description: "A React-based chatbot with Context-Aware Assistance that can be embedded into any application, offering seamless integration and customizable UI to match the host platform.",
+    live: "https://dissu-talks.vercel.app"
+  },
+  {
+    image: "https://placehold.co/400x200/6e5494/fff?text=Mudra",
+    name: "Mudra",
+    tech: ["React.js", "Axios", "dissu-talks", "Vite", "SCSS", "Node.js", "Typescript", "Express.js", "MongoDb", "Redis"],
+    description: "Mudra Guide provides comprehensive integration instructions for Mudra, a secure and scalable SSO microservice designed to generate and validate JWT tokens across your ecosystem.",
+    live: "https://mudra-guide.vercel.app"
+  },
+  {
+    image: "https://placehold.co/400x200/6e5494/fff?text=Guru+Gang",
+    name: "Guru Gang",
+    tech: ["React", "Vite", "face-api.js", "react-router-dom", "axios", "dissu-talks", "Gemini API", "Node.js", "MongoDb", "CSS"],
+    description: "Guru Gang is an interactive learning platform offering courses, quizzes, assignments, and concept battles for students and teachers. It features progress tracking, a distraction-free focus room, and an AI-powered assistant.",
+    live: "https://guru-gang.vercel.app"
+  },
+];
+
+const ProjectsViewer = () => {
+  const [current, setCurrent] = useState(0);
+  const total = projects.length;
+
+  const goLeft = () =>
+    setCurrent((prev) => (prev === 0 ? total - 1 : prev - 1));
+  const goRight = () =>
+    setCurrent((prev) => (prev === total - 1 ? 0 : prev + 1));
+
+  const project = projects[current];
+  if (!project) return null;
+  const { image, name, tech, description, live } = project;
+
+  return (
+    <div className={styles.ViewerContainer}>
+      <button
+        className={styles.Arrow}
+        onClick={goLeft}
+        aria-label="Previous project"
+      >
+        &#8592;
+      </button>
+      <div className={styles.ProjectCard}>
+        <img src={image} alt={name} className={styles.PreviewImage} />
+        <div className={styles.ProjectInfo}>
+          <h3 className={styles.ProjectName}>{name}</h3>
+          <div className={styles.TechStack}>
+            {tech.map((t: string) => (
+              <span key={t}>{t}</span>
+            ))}
+          </div>
+          <p className={styles.Description}>{description}</p>
+          <a
+            href={live}
+            className={styles.LiveLink}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Live ↗
+          </a>
+        </div>
+      </div>
+      <button
+        className={styles.Arrow}
+        onClick={goRight}
+        aria-label="Next project"
+      >
+        &#8594;
+      </button>
+    </div>
+  );
+};
+
+export default ProjectsViewer;
