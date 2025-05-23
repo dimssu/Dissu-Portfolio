@@ -1,0 +1,43 @@
+.LandingIntroContainer {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    z-index: 1;
+    pointer-events: none;
+    margin-bottom: 12rem;
+}
+
+.LandingIntro {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.ContentOverlay {
+    margin-top: 250px;
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100%;
+    
+    .Name {
+        font-family: 'Fjalla One', sans-serif;
+        font-size: 3rem;
+        font-weight: 400;
+        color: #fff;
+    }
+
+    .Role {
+        font-size: 1.5rem;
+        font-family: 'Dosis', sans-serif;
+        font-weight: 300;
+    }
+}

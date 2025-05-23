@@ -1,0 +1,31 @@
+.Navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background: #242424;
+    color: #fff;
+    font-family: 'Dosis', sans-serif;
+    font-weight: 300;
+    font-size: 1.2rem;
+    letter-spacing: 0.1rem;
+    text-transform: uppercase;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    text-decoration: none;
+
+    .NavbarLink {
+        text-decoration: none;
+        color: #fff;
+        margin-right: 1rem;
+    }
+}
+
+.Scrolled {
+    background: #6e5494 !important;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+    transition: background 0.5s ease;
+}

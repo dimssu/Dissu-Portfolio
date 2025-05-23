@@ -1,0 +1,62 @@
+.WorkExperience {
+  background: #232323;
+  border-radius: 12px;
+  padding: 2rem;
+  margin: 2rem auto;
+  max-width: 1200px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+  color: #fff;
+}
+
+.CompanyName {
+    display: flex;
+    align-items: center;
+}
+
+.CompanyNameText {
+  font-family: 'Fjalla One', sans-serif;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  padding-top: 2cqb;
+
+  .CompanyNameTextSub {
+    font-family: 'Dosis', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: #fff;
+    display: flex;
+    gap: 0.5rem;
+  }
+}
+
+.CompanyNameIcon {
+  width: 3rem;
+  height: 3rem;
+  margin-right: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.CompanyIcon {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  scale: 0.8;
+}
+
+.WorkExperience ul {
+  padding-left: 3rem;
+}
+
+.WorkExperience li {
+  font-family: 'Dosis', sans-serif;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+  font-weight: 100;
+}
