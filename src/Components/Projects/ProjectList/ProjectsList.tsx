@@ -1,11 +1,12 @@
 import styles from './ProjectsList.module.scss';
 import { FaExternalLinkAlt } from 'react-icons/fa';
-import { Player } from '@lottiefiles/react-lottie-player';
 import ChatBot from '../../../assets/ProjectDemoGifs/Chatbot.gif';
+import Mudra from '../../../assets/ProjectDemoGifs/MudraGuide.gif';
+import GuruGang from '../../../assets/ProjectDemoGifs/Gurugang.gif';
 
 const projects = [
   {
-    video: ChatBot, // Add demo video URL if available
+    video: ChatBot,
     image: "https://placehold.co/400x200/6e5494/fff?text=Dissu+Talks",
     name: "Dissu Talks",
     tech: ["ReactJs", "Typescript", "clsx", "uuid", "Vite"],
@@ -13,7 +14,7 @@ const projects = [
     live: "https://dissu-talks.vercel.app"
   },
   {
-    video: '',
+    video: Mudra,
     image: "https://placehold.co/400x200/6e5494/fff?text=Mudra",
     name: "Mudra",
     tech: ["React.js", "Axios", "dissu-talks", "Vite", "SCSS", "Node.js", "Typescript", "Express.js", "MongoDb", "Redis"],
@@ -21,7 +22,7 @@ const projects = [
     live: "https://mudra-guide.vercel.app"
   },
   {
-    video: '',
+    video: GuruGang,
     image: "https://placehold.co/400x200/6e5494/fff?text=Guru+Gang",
     name: "Guru Gang",
     tech: ["React", "Vite", "face-api.js", "react-router-dom", "axios", "dissu-talks", "Gemini API", "Node.js", "MongoDb", "CSS"],
