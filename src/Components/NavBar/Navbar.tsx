@@ -35,7 +35,7 @@ const Navbar = () => {
   return (
     <nav className={`${styles.Navbar} ${scrolled ? styles.Scrolled : ''}`}>
       <div className={styles.NavbarLogo}>
-        <h1>Aryan Singh</h1>
+        <h1> {'</>'} Aryan Singh</h1>
       </div>
       <div className={styles.NavbarLinksContainer}>
       {NAV_LINKS.map(link => (

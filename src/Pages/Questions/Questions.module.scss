@@ -1,0 +1,78 @@
+.questionsBg {
+    background: #232323;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Dosis', 'Fjalla One', sans-serif;
+  }
+  
+  .questionsCard {
+    background: beige;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+    padding: 2.5rem 2rem;
+    min-width: 340px;
+    max-width: 400px;
+    width: 100%;
+  }
+  
+  .questionsIntro {
+    margin-bottom: 24px;
+    color: #232323;
+    font-weight: 500;
+  }
+  
+  .questionsLabel {
+    font-weight: 600;
+    color: #232323;
+    margin-bottom: 8px;
+    display: block;
+  }
+  
+  .questionsSelectWrapper {
+    margin-bottom: 24px;
+  }
+  
+  .questionsSelect {
+    width: 100%;
+    padding: 0.75rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 18px;
+    font-family: inherit;
+  }
+  
+  .questionsTitle {
+    color: #232323;
+    margin-bottom: 24px;
+    font-weight: 700;
+  }
+  
+  .questionsOptions {
+    margin-bottom: 24px;
+  }
+  
+  .questionsOption {
+    display: block;
+    background: #fff;
+    color: #232323;
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-weight: 500;
+    border: 1.5px solid #232323;
+    transition: all 0.2s;
+    font-family: inherit;
+  
+    input {
+      margin-right: 12px;
+    }
+  }
+  
+  .questionsOption.selected {
+    background: #232323;
+    color: beige;
+  }
+  
