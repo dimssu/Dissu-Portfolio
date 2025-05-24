@@ -1,0 +1,136 @@
+.ProjectsListGrid{
+  width: 100vw;
+  min-height: 60vh;
+  background: rgba(36,36,36,0.96);
+  padding-top: 6rem;
+  animation: fadeInList 0.7s cubic-bezier(0.4,0,0.2,1);
+  overflow-y: auto;
+}
+
+.ProjectsListRows {
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem;
+  width: 100vw;
+  padding: 4rem 0 4rem 0;
+  background: beige;
+}
+
+.ProjectRowLeft, .ProjectRowRight {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  gap: 2.5rem;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  background: rgba(36,36,36,0.92);
+  border-radius: 2rem;
+  box-shadow: 0 4px 24px rgba(110,84,148,0.10);
+  padding: 2.5rem 2rem;
+  transition: box-shadow 0.3s, transform 0.3s;
+}
+
+.ProjectRowLeft {
+  flex-direction: row;
+}
+
+.ProjectRowRight {
+  flex-direction: row-reverse;
+}
+
+.ProjectMedia {
+  flex: 1 1 350px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 320px;
+  max-width: 420px;
+  background: #232323;
+  border-radius: 1.2rem;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(110,84,148,0.12);
+}
+
+.ProjectImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 1.2rem;
+}
+
+.ProjectDetails {
+  flex: 2 1 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 2rem;
+  color: #fff;
+}
+
+.ProjectName {
+  font-family: 'Fjalla One', sans-serif;
+  font-size: 2rem;
+  color: #6e5494;
+  margin-bottom: 0.7rem;
+}
+
+.TechStack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.TechStack span {
+  background: #6e5494;
+  color: #fff;
+  font-family: 'Dosis', sans-serif;
+  font-size: 1rem;
+  border-radius: 6px;
+  padding: 0.2rem 0.7rem;
+  margin: 0 0.1rem;
+  letter-spacing: 0.04em;
+}
+
+.LiveLink {
+  display: inline-block;
+  margin-bottom: 1rem;
+  margin-top: 0.5rem;
+  padding: 0.5rem 1.2rem;
+  background: #6e5494;
+  color: #fff;
+  font-family: 'Dosis', sans-serif;
+  font-size: 1rem;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(110,84,148,0.10);
+  font-weight: 500;
+}
+
+.LiveLink:hover, .LiveLink:focus {
+  background: #4b386b;
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(110,84,148,0.18);
+}
+
+.Description {
+  font-family: 'Dosis', sans-serif;
+  color: #fff;
+  font-size: 1.1rem;
+  margin-top: 0.5rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 900px) {
+  .ProjectRowLeft, .ProjectRowRight {
+    flex-direction: column !important;
+    padding: 1.5rem 0.5rem;
+    gap: 1.5rem;
+  }
+  .ProjectMedia, .ProjectDetails {
+    max-width: 100%;
+    padding: 0;
+  }
+}
