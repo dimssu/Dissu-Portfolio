@@ -1,8 +1,33 @@
 import { Player } from '@lottiefiles/react-lottie-player'
 import landingIntro from '../../assets/Animations/homePageBanner.json'
 import styles from './LandingIntro.module.scss'
+import { FaEnvelope, FaGithub, FaLinkedin } from "react-icons/fa";
 
 const LandingIntro = () => {
+
+    const landingIntroContent = {
+        name: 'Aryan Singh',
+        role: 'Full-stack by day, top-fragging gamer by night — bugs fear me in both code & combat.',
+        cta: 'View My Work',
+        socialLinks: [
+            {
+                platform: 'GitHub',
+                url: 'https://github.com/dimssu',
+                icon: <FaGithub />
+            },
+            {
+                platform: 'LinkedIn',
+                url: 'https://www.linkedin.com/in/aryan-singh-9987a11b7/',
+                icon: <FaLinkedin />
+            },
+            {
+                platform: 'Email',
+                url: 'mailto:your@email.com',
+                icon: <FaEnvelope />
+            }
+        ]
+    }
+
   return (
     <div className={styles.LandingIntroContainer}>
       <div className={styles.LandingIntro}>
@@ -15,18 +40,27 @@ const LandingIntro = () => {
         </div>
         <div className={styles.ContentOverlay}>
             <div className={styles.Name}>
-                <h1>Aryan Singh</h1>
+                <h1>{landingIntroContent.name}</h1>
             </div>
             <div className={styles.Role}>
-                Full-stack by day, top-fragging gamer by night — bugs fear me in both code & combat.
+                {landingIntroContent.role}
             </div>
             <button className={styles.CTAButton}>
-                View My Work
+                {landingIntroContent.cta}
             </button>
             <div className={styles.SocialLinks}>
-                <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">GitHub</a>
-                <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                <a href="mailto:your@email.com">Email</a>
+              {landingIntroContent.socialLinks.map((link, idx) => (
+                <div className={styles.SocialLinkWrapper} key={link.platform}>
+                  <a
+                    className={styles.SocialLink}
+                    href={link.url}
+                    target={link.platform === 'Email' ? undefined : '_blank'}
+                    rel={link.platform === 'Email' ? undefined : 'noopener noreferrer'}
+                  >
+                    {link.platform} <span className={styles.SocialIcon}>{link.icon}</span>
+                  </a>
+                </div>
+              ))}
             </div>
         </div>
     </div>

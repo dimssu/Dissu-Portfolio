@@ -6,6 +6,7 @@
     height: 300px;
     background-color: beige;
     padding: 18rem 0;
+    position: relative;
 }
 
 .ProjectsTitle {
@@ -21,4 +22,52 @@
 .Projects {
     width: 50%;
     display: flex;
+}
+
+.ExpandButton {
+    position: absolute;
+    right: 2.5rem;
+    bottom: 2.5rem;
+    padding: 0.7rem 2.2rem;
+    background: linear-gradient(90deg, #6e5494 60%, #4b386b 100%);
+    color: #fff;
+    font-family: 'Dosis', sans-serif;
+    font-size: 1.1rem;
+    border-radius: 2rem;
+    box-shadow: 0 2px 12px rgba(110,84,148,0.18);
+    cursor: pointer;
+    border: none;
+    outline: none;
+    z-index: 10;
+    transition: background 0.2s, transform 0.2s;
+    animation: pulse 1.8s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1);}
+    50% { transform: scale(1.06);}
+    100% { transform: scale(1);}
+}
+
+.ProjectsListWrapper {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    min-height: 100vh;
+    background: rgba(36,36,36,0.92);
+    z-index: 100;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 6rem;
+    animation: fadeInList 0.7s cubic-bezier(0.4,0,0.2,1);
+}
+
+.ProjectsListLoading {
+    color: #fff;
+    font-size: 1.3rem;
+    padding: 4rem 0;
+    text-align: center;
+    width: 100%;
 }

@@ -1,0 +1,107 @@
+.ProjectsListGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 2.5rem;
+  padding: 3rem 2rem 2rem 2rem;
+  width: 100%;
+  background: rgba(245,245,255,0.85);
+  border-radius: 2rem;
+  box-shadow: 0 8px 32px 0 rgba(110,84,148,0.10);
+  margin-top: 2rem;
+  animation: fadeInList 0.7s cubic-bezier(0.4,0,0.2,1);
+}
+
+@keyframes fadeInList {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.ProjectCard {
+  background: #232323;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+  padding: 2rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 280px;
+  max-width: 400px;
+  transition: box-shadow 0.3s, transform 0.3s;
+  position: relative;
+  border: 1.5px solid #6e5494;
+  cursor: pointer;
+}
+
+.ProjectCard:hover {
+  box-shadow: 0 8px 32px 0 #6e5494;
+  transform: translateY(-8px) scale(1.03);
+}
+
+.PreviewImage {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 1.2rem;
+  box-shadow: 0 2px 12px rgba(110,84,148,0.12);
+}
+
+.ProjectInfo {
+  width: 100%;
+  text-align: center;
+}
+
+.ProjectName {
+  font-family: 'Fjalla One', sans-serif;
+  font-size: 1.5rem;
+  color: #6e5494;
+  margin-bottom: 0.5rem;
+}
+
+.TechStack {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.TechStack span {
+  background: #6e5494;
+  color: #fff;
+  font-family: 'Dosis', sans-serif;
+  font-size: 0.95rem;
+  border-radius: 6px;
+  padding: 0.2rem 0.7rem;
+  margin: 0 0.1rem;
+  letter-spacing: 0.04em;
+}
+
+.Description {
+  font-family: 'Dosis', sans-serif;
+  color: #fff;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+  line-height: 1.5;
+}
+
+.LiveLink {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.5rem 1.2rem;
+  background: #6e5494;
+  color: #fff;
+  font-family: 'Dosis', sans-serif;
+  font-size: 1rem;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(110,84,148,0.10);
+  font-weight: 500;
+}
+
+.LiveLink:hover, .LiveLink:focus {
+  background: #4b386b;
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(110,84,148,0.18);
+} 

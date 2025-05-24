@@ -50,10 +50,10 @@ const Home = () => {
         }}
       />
       <div className={`${styles.AnimatedContent} ${showContent ? styles.Clear : styles.Blur}`}>
-        <LandingIntro />
-        <WorkExperience />
-        <Projects />
-        <GitCalendar />
+        <section id="home-section"><LandingIntro /></section>
+        <section id="experience-section"><WorkExperience /></section>
+        <section id="projects-section"><Projects /></section>
+        <section id="github-section"><GitCalendar /></section>
       </div>
     </div>
   )
