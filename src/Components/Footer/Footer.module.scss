@@ -1,0 +1,24 @@
+.FooterContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: #131313;
+    height: 100px;
+    z-index: 100;
+
+    .FooterContent {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+
+        .FooterText {
+            font-size: 1rem;
+            font-family: 'Dosis', sans-serif;
+            color: #fff;
+        }
+    }
+    
+}

@@ -41,3 +41,40 @@
         font-weight: 300;
     }
 }
+
+.CTAButton {
+  margin-top: 2rem;
+  padding: 0.8rem 2.2rem;
+  background: linear-gradient(90deg, #6e5494 60%, #4b386b 100%);
+  color: #fff;
+  font-family: 'Dosis', sans-serif;
+  font-size: 1.2rem;
+  border-radius: 2rem;
+  box-shadow: 0 2px 12px rgba(110,84,148,0.18);
+  cursor: pointer;
+  transition: transform 0.2s, background 0.2s;
+  animation: pulse 1.8s infinite;
+  border: none;
+  outline: none;
+  text-align: center;
+}
+@keyframes pulse {
+  0% { transform: scale(1);}
+  50% { transform: scale(1.06);}
+  100% { transform: scale(1);}
+}
+
+.SocialLinks {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  a {
+    color: #6e5494;
+    font-size: 1.3rem;
+    text-decoration: none;
+    transition: color 0.2s;
+    font-family: 'Dosis', sans-serif;
+    &:hover { color: #fff; }
+  }
+}
