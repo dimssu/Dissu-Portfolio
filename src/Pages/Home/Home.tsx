@@ -16,7 +16,7 @@ const Home = () => {
     const timer = setTimeout(() => {
       setLoading(false);
       setTimeout(() => setShowContent(true), 10); // trigger animation
-    }, 2000);
+    }, 1000);
     return () => clearTimeout(timer);
   }, []);
 

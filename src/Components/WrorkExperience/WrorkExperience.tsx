@@ -1,5 +1,5 @@
 import styles from './WrorkExperience.module.scss';
-import companyIcon from '../../assets/recur-club.png';
+import companyIcon from '../../assets/PNG/recur-club.png';
 
 const WorkExperience = () => {
 
