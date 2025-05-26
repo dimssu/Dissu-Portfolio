@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from "./ProjectsViewer.module.scss";
 import ChatBot from '../../../assets/ProjectDemoGifs/Chatbot.gif';
 import Mudra from '../../../assets/ProjectDemoGifs/MudraGuide.gif';
@@ -39,11 +39,28 @@ const projects: Project[] = [
 const ProjectsViewer = () => {
   const [current, setCurrent] = useState(0);
   const total = projects.length;
+  const [bounceLeft, setBounceLeft] = useState(false);
+  const [bounceRight, setBounceRight] = useState(false);
 
-  const goLeft = () =>
+  const goLeft = () => {
+    setBounceLeft(true);
     setCurrent((prev) => (prev === 0 ? total - 1 : prev - 1));
-  const goRight = () =>
+    setTimeout(() => setBounceLeft(false), 500);
+  };
+  const goRight = () => {
+    setBounceRight(true);
+    changeProjectRight();
+    setTimeout(() => setBounceRight(false), 500);
+  };
+
+  const changeProjectRight = () => {
     setCurrent((prev) => (prev === total - 1 ? 0 : prev + 1));
+  }
+
+  useEffect(() => {
+    const interval = setInterval(changeProjectRight, 4000);
+    return () => clearInterval(interval);
+  }, [total]);
 
   const project = projects[current];
   if (!project) return null;
@@ -52,7 +69,7 @@ const ProjectsViewer = () => {
   return (
     <div className={styles.ViewerContainer}>
       <button
-        className={styles.Arrow}
+        className={`${styles.Arrow} ${bounceLeft ? styles.BounceLeft : ''}`}
         onClick={goLeft}
         aria-label="Previous project"
       >
@@ -79,7 +96,7 @@ const ProjectsViewer = () => {
         </div>
       </div>
       <button
-        className={styles.Arrow}
+        className={`${styles.Arrow} ${bounceRight ? styles.BounceRight : ''}`}
         onClick={goRight}
         aria-label="Next project"
       >

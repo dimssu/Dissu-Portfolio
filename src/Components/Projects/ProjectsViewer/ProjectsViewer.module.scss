@@ -107,4 +107,24 @@
   background: #4b386b;
   color: #fff;
   box-shadow: 0 4px 16px rgba(110,84,148,0.18);
+}
+
+@keyframes bounceLeft {
+  0% { transform: translateX(0); }
+  50% { transform: translateX(-18px); }
+  100% { transform: translateX(0); }
+}
+
+@keyframes bounceRight {
+  0% { transform: translateX(0); }
+  50% { transform: translateX(18px); }
+  100% { transform: translateX(0); }
+}
+
+.BounceLeft {
+  animation: bounceLeft 0.5s cubic-bezier(0.4,0,0.2,1);
+}
+
+.BounceRight {
+  animation: bounceRight 0.5s cubic-bezier(0.4,0,0.2,1);
 } 
