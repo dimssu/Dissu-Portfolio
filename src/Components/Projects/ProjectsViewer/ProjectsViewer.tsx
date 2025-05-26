@@ -18,21 +18,21 @@ const projects: Project[] = [
     name: "Dissu Talks",
     tech: ["ReactJs", "Typescript", "clsx", "uuid", "Vite"],
     description: "A React-based chatbot with Context-Aware Assistance that can be embedded into any application, offering seamless integration and customizable UI to match the host platform.",
-    live: "https://dissu-talks.vercel.app"
+    live: "https://dissu-talks-demo.vercel.app"
   },
   {
     image: Mudra,
     name: "Mudra",
-    tech: ["React.js", "Axios", "dissu-talks", "Vite", "SCSS", "Node.js", "Typescript", "Express.js", "MongoDb", "Redis"],
+    tech: ["React.js", "Axios", "dissu-talks", "Vite", "SCSS", "Node", "Typescript", "Express", "MongoDB", "Redis"],
     description: "Mudra Guide provides integration instructions for Mudra, a secure SSO microservice that generates and validates JWT tokens across your ecosystem.",
     live: "https://mudra-guide.vercel.app"
   },
   {
     image: GuruGang,
     name: "Guru Gang",
-    tech: ["React", "Vite", "face-api.js", "react-router-dom", "axios", "dissu-talks", "Gemini API", "Node.js", "MongoDb"],
+    tech: ["React", "Vite", "face-api.js", "react-router-dom", "axios", "dissu-talks", "Gemini API", "Node.js", "MongoDb", "CSS"],
     description: "Guru Gang is an interactive learning platform with courses, quizzes, and concept battles.",
-    live: "https://guru-gang.vercel.app"
+    live: "https://guru-gang.dimssu.com"
   },
 ];
 

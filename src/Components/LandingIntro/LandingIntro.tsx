@@ -2,8 +2,10 @@ import { Player } from '@lottiefiles/react-lottie-player'
 import landingIntro from '../../assets/Animations/homePageBanner.json'
 import styles from './LandingIntro.module.scss'
 import { FaEnvelope, FaGithub, FaLinkedin } from "react-icons/fa";
+import { useState } from 'react';
 
 const LandingIntro = () => {
+  const [copied, setCopied] = useState(false);
 
     const landingIntroContent = {
         name: 'Aryan Singh',
@@ -22,7 +24,7 @@ const LandingIntro = () => {
             },
             {
                 platform: 'Email',
-                url: 'mailto:your@email.com',
+                url: 'mailto:aryansi1126@gmail.com?subject=Hello%20Aryan%20from%20your%20portfolio!&body=Hi%20Aryan%2C%20I%20found%20your%20portfolio%20and%20wanted%20to%20connect!',
                 icon: <FaEnvelope />
             }
         ]
@@ -45,20 +47,43 @@ const LandingIntro = () => {
             <div className={styles.Role}>
                 {landingIntroContent.role}
             </div>
-            <button className={styles.CTAButton}>
-                {landingIntroContent.cta}
+            <button
+              className={styles.CTAButton}
+              onClick={() => {
+                const el = document.getElementById('projects-section');
+                if (el) {
+                  const y = el.getBoundingClientRect().top + window.pageYOffset - 120;
+                  window.scrollTo({ top: y, behavior: 'smooth' });
+                }
+              }}
+            >
+              {landingIntroContent.cta}
             </button>
             <div className={styles.SocialLinks}>
               {landingIntroContent.socialLinks.map((link, idx) => (
                 <div className={styles.SocialLinkWrapper} key={link.platform}>
-                  <a
-                    className={styles.SocialLink}
-                    href={link.url}
-                    target={link.platform === 'Email' ? undefined : '_blank'}
-                    rel={link.platform === 'Email' ? undefined : 'noopener noreferrer'}
-                  >
-                    {link.platform} <span className={styles.SocialIcon}>{link.icon}</span>
-                  </a>
+                  {link.platform === 'Email' ? (
+                    <a
+                      className={styles.SocialLink}
+                      href={link.url}
+                      onClick={() => {
+                        navigator.clipboard.writeText('aryansi1126@gmail.com');
+                        setCopied(true);
+                        setTimeout(() => setCopied(false), 1500);
+                      }}
+                    >
+                      {copied ? 'Copied!' : link.platform} <span className={styles.SocialIcon}>{link.icon}</span>
+                    </a>
+                  ) : (
+                    <a
+                      className={styles.SocialLink}
+                      href={link.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {link.platform} <span className={styles.SocialIcon}>{link.icon}</span>
+                    </a>
+                  )}
                 </div>
               ))}
             </div>

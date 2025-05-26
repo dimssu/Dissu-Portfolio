@@ -33,7 +33,7 @@ const ContactMe = () => {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         try {
-            const res = await fetch('https://formspree.io/f/xwpodzpz', {
+            const res = await fetch(import.meta.env.VITE_FORM_SPREE_URL, {
                 method: 'POST',
                 headers: { 'Accept': 'application/json' },
                 body: new FormData(formRef.current!),

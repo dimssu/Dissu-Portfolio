@@ -8,20 +8,29 @@ const BottomDrawer = () => {
   const [showProjects, setShowProjects] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    if (showProjects) {
+      setVisible(true);
+      let raf1 = 0, raf2 = 0;
+      raf1 = requestAnimationFrame(() => {
+        raf2 = requestAnimationFrame(() => setIsMounted(true));
+      });
+      return () => {
+        cancelAnimationFrame(raf1);
+        cancelAnimationFrame(raf2);
+      };
+    } else {
+      setIsMounted(false);
+      const timer = setTimeout(() => setVisible(false), 500);
+      return () => clearTimeout(timer);
+    }
+  }, [showProjects]);
 
   useEffect(() => {
     setShowProjects(searchParams.get('showProjects') === 'true');
   }, [searchParams.get('showProjects')]);
-
-  useEffect(() => {
-    if (showProjects) {
-      // Wait for the drawer to mount, then trigger the open animation
-      const timer = setTimeout(() => setIsMounted(true), 10);
-      return () => clearTimeout(timer);
-    } else {
-      setIsMounted(false);
-    }
-  }, [showProjects]);
 
   const handleBackdropClick = () => {
     setIsClosing(true);
@@ -35,22 +44,22 @@ const BottomDrawer = () => {
 
   return (
     <>
-        {showProjects && (
-    <div className={styles.BottomDrawerContainer}>
-      {showProjects && <div className={styles.BottomDrawerBackdrop} onClick={handleBackdropClick} />}
-      <div className={
-        isClosing
-          ? `${styles.BottomDrawer} ${styles.BottomDrawerClosing}`
-          : isMounted
-            ? `${styles.BottomDrawer} ${styles.BottomDrawerOpen}`
-            : styles.BottomDrawer
-      }>
-          <Suspense fallback={<div style={{color: '#fff', fontSize: '1.3rem', padding: '4rem 0', textAlign: 'center', width: '100%'}}>Loading projects...</div>}>
-            <ProjectsList />
-          </Suspense>
-      </div>
-    </div>
-        )}
+      {visible && (
+        <div className={styles.BottomDrawerContainer}>
+          {showProjects && <div className={styles.BottomDrawerBackdrop} onClick={handleBackdropClick} />}
+          <div className={
+            isClosing
+              ? `${styles.BottomDrawer} ${styles.BottomDrawerClosing}`
+              : isMounted
+                ? `${styles.BottomDrawer} ${styles.BottomDrawerOpen}`
+                : styles.BottomDrawer
+          }>
+            <Suspense fallback={<div style={{color: '#fff', fontSize: '1.3rem', padding: '4rem 0', textAlign: 'center', width: '100%'}}>Loading projects...</div>}>
+              <ProjectsList />
+            </Suspense>
+          </div>
+        </div>
+      )}
     </>
   )
 }
