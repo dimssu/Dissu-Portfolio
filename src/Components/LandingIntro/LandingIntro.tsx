@@ -52,7 +52,7 @@ const LandingIntro = () => {
               onClick={() => {
                 const el = document.getElementById('projects-section');
                 if (el) {
-                  const y = el.getBoundingClientRect().top + window.pageYOffset - 120;
+                  const y = el.getBoundingClientRect().top + window.pageYOffset - 150;
                   window.scrollTo({ top: y, behavior: 'smooth' });
                 }
               }}

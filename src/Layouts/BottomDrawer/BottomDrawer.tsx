@@ -36,10 +36,11 @@ const BottomDrawer = () => {
     setIsClosing(true);
     setTimeout(() => {
       searchParams.delete('showProjects');
+      searchParams.delete('hideNavbar');
       setIsClosing(false);
       setShowProjects(false);
       setSearchParams(searchParams);
-    }, 500); // match the CSS transition duration
+    }, 500);
   };
 
   return (
@@ -54,6 +55,13 @@ const BottomDrawer = () => {
                 ? `${styles.BottomDrawer} ${styles.BottomDrawerOpen}`
                 : styles.BottomDrawer
           }>
+            <button
+              className={styles.CloseButton}
+              aria-label="Close Drawer"
+              onClick={handleBackdropClick}
+            >
+              &times;
+            </button>
             <Suspense fallback={<div style={{color: '#fff', fontSize: '1.3rem', padding: '4rem 0', textAlign: 'center', width: '100%'}}>Loading projects...</div>}>
               <ProjectsList />
             </Suspense>

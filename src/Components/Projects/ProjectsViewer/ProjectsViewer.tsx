@@ -41,28 +41,41 @@ const ProjectsViewer = () => {
   const total = projects.length;
   const [bounceLeft, setBounceLeft] = useState(false);
   const [bounceRight, setBounceRight] = useState(false);
+  const [slideDirection, setSlideDirection] = useState('');
+  const [pendingIndex, setPendingIndex] = useState<number | null>(null);
+
+  const triggerSlide = (direction: 'left' | 'right', nextIndex: number) => {
+    setSlideDirection(direction === 'left' ? 'SlideLeft' : 'SlideRight');
+    setPendingIndex(nextIndex);
+    setTimeout(() => {
+      setCurrent(nextIndex);
+      setSlideDirection('');
+      setPendingIndex(null);
+    }, 500);
+  };
 
   const goLeft = () => {
     setBounceLeft(true);
-    setCurrent((prev) => (prev === 0 ? total - 1 : prev - 1));
+    const nextIndex = current === 0 ? total - 1 : current - 1;
+    triggerSlide('left', nextIndex);
     setTimeout(() => setBounceLeft(false), 500);
   };
   const goRight = () => {
     setBounceRight(true);
-    changeProjectRight();
+    const nextIndex = current === total - 1 ? 0 : current + 1;
+    triggerSlide('right', nextIndex);
     setTimeout(() => setBounceRight(false), 500);
   };
 
-  const changeProjectRight = () => {
-    setCurrent((prev) => (prev === total - 1 ? 0 : prev + 1));
-  }
-
   useEffect(() => {
-    const interval = setInterval(changeProjectRight, 4000);
+    const interval = setInterval(() => {
+      const nextIndex = current === total - 1 ? 0 : current + 1;
+      triggerSlide('right', nextIndex);
+    }, 4000);
     return () => clearInterval(interval);
-  }, [total]);
+  }, [current, total]);
 
-  const project = projects[current];
+  const project = pendingIndex !== null ? projects[pendingIndex] : projects[current];
   if (!project) return null;
   const { image, name, tech, description, live } = project;
 
@@ -75,7 +88,7 @@ const ProjectsViewer = () => {
       >
         &#8592;
       </button>
-      <div className={styles.ProjectCard}>
+      <div className={`${styles.ProjectCard} ${slideDirection ? styles[slideDirection] : ''}`}>
         <img src={image} alt={name} className={styles.PreviewImage} />
         <div className={styles.ProjectInfo}>
           <h3 className={styles.ProjectName}>{name}</h3>

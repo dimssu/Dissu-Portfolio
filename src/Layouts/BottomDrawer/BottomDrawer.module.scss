@@ -47,3 +47,25 @@
   transform: translateY(100%);
   opacity: 0;
 }
+
+.CloseButton {
+  position: absolute;
+  top: 1.2rem;
+  right: 2rem;
+  background: none;
+  border: none;
+  color: #333;
+  font-size: 1.9rem;
+  cursor: pointer;
+  z-index: 2200;
+  transition: color 0.2s, transform 0.2s;
+  height: 34px;
+  padding: 0px 8px;
+  border-radius: 8px;
+}
+.CloseButton:hover, .CloseButton:focus {
+  color: #6e5494;
+  background: rgba(110,84,148,0.08);
+  transform: scale(1.1);
+  outline: none;
+}

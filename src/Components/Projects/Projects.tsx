@@ -12,7 +12,7 @@ const Projects = () => {
         <div className={styles.ProjectsTitle}>
           Projects
         </div>
-        <button className={styles.ExpandButton} onClick={() => setSearchParams({ showProjects: 'true' })}>
+        <button className={styles.ExpandButton} onClick={() => setSearchParams({ showProjects: 'true', hideNavbar: 'true' })}>
           View More
         </button>
       </div>
