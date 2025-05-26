@@ -1,5 +1,8 @@
 import { useState } from "react";
 import styles from "./ProjectsViewer.module.scss";
+import ChatBot from '../../../assets/ProjectDemoGifs/Chatbot.gif';
+import Mudra from '../../../assets/ProjectDemoGifs/MudraGuide.gif';
+import GuruGang from '../../../assets/ProjectDemoGifs/Gurugang.gif';
 
 type Project = {
   image: string;
@@ -11,24 +14,24 @@ type Project = {
 
 const projects: Project[] = [
   {
-    image: "https://placehold.co/400x200/6e5494/fff?text=Dissu+Talks",
+    image: ChatBot,
     name: "Dissu Talks",
     tech: ["ReactJs", "Typescript", "clsx", "uuid", "Vite"],
     description: "A React-based chatbot with Context-Aware Assistance that can be embedded into any application, offering seamless integration and customizable UI to match the host platform.",
     live: "https://dissu-talks.vercel.app"
   },
   {
-    image: "https://placehold.co/400x200/6e5494/fff?text=Mudra",
+    image: Mudra,
     name: "Mudra",
     tech: ["React.js", "Axios", "dissu-talks", "Vite", "SCSS", "Node.js", "Typescript", "Express.js", "MongoDb", "Redis"],
-    description: "Mudra Guide provides comprehensive integration instructions for Mudra, a secure and scalable SSO microservice designed to generate and validate JWT tokens across your ecosystem.",
+    description: "Mudra Guide provides integration instructions for Mudra, a secure SSO microservice that generates and validates JWT tokens across your ecosystem.",
     live: "https://mudra-guide.vercel.app"
   },
   {
-    image: "https://placehold.co/400x200/6e5494/fff?text=Guru+Gang",
+    image: GuruGang,
     name: "Guru Gang",
-    tech: ["React", "Vite", "face-api.js", "react-router-dom", "axios", "dissu-talks", "Gemini API", "Node.js", "MongoDb", "CSS"],
-    description: "Guru Gang is an interactive learning platform offering courses, quizzes, assignments, and concept battles for students and teachers. It features progress tracking, a distraction-free focus room, and an AI-powered assistant.",
+    tech: ["React", "Vite", "face-api.js", "react-router-dom", "axios", "dissu-talks", "Gemini API", "Node.js", "MongoDb"],
+    description: "Guru Gang is an interactive learning platform with courses, quizzes, and concept battles.",
     live: "https://guru-gang.vercel.app"
   },
 ];

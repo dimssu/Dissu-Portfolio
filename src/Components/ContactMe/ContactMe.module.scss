@@ -1,0 +1,144 @@
+.contactBg {
+  background: #23232300;
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Dosis', 'Fjalla One', sans-serif;
+  margin-bottom: 56px;
+}
+
+.contactCard {
+  background: beige;
+  border-radius: 2rem;
+  box-shadow: 0 4px 32px rgba(108,54,189,0.10);
+  padding: 2.5rem 2rem;
+  display: flex;
+  gap: 3rem;
+  align-items: flex-start;
+  max-width: 1000px;
+  width: 100%;
+  margin: 2rem 0;
+}
+
+.contactLeft {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-width: 220px;
+  gap: 1.2rem;
+}
+
+.contactIntro {
+  font-family: 'Fjalla One', sans-serif;
+  font-size: 2rem;
+  color: #232323;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.contactSubIntro {
+  font-family: 'Dosis', sans-serif;
+  font-size: 1.1rem;
+  color: #6c36bd;
+  margin-top: 0.5rem;
+  display: block;
+}
+
+.contactForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  flex: 1;
+  min-width: 260px;
+}
+
+.inputGroup {
+  position: relative;
+  margin-bottom: 1.2rem;
+}
+
+.inputGroup input,
+.inputGroup textarea {
+  width: 100%;
+  padding: 1.1rem 1rem 0.7rem 1rem;
+  border: 1px solid #6c36bd;
+  border-radius: 1rem;
+  background: #fff;
+  font-size: 1.1rem;
+  font-family: 'Dosis', sans-serif;
+  color: #232323;
+  outline: none;
+  transition: border 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(108,54,189,0.06);
+  resize: none;
+}
+
+.inputGroup input:focus,
+.inputGroup textarea:focus {
+  border: 1px solid #232323;
+  box-shadow: 0 2px 12px rgba(108,54,189,0.13);
+}
+
+.inputGroup label {
+  position: absolute;
+  left: 1.2rem;
+  top: 1.1rem;
+  color: #6c36bd;
+  font-size: 1.1rem;
+  font-family: 'Dosis', sans-serif;
+  pointer-events: none;
+  background: transparent;
+  transition: all 0.2s cubic-bezier(0.4,0,0.2,1);
+}
+
+.inputGroup input:focus + label,
+.inputGroup textarea:focus + label,
+.inputGroup .filled + label {
+  top: -0.9rem;
+  left: 0.8rem;
+  font-size: 0.95rem;
+  color: #232323;
+  background: beige;
+  padding: 0 0.4rem;
+  border-radius: 0.5rem;
+}
+
+.sendBtn {
+  background: linear-gradient(90deg, #6c36bd 60%, #232323 100%);
+  color: #fff;
+  font-family: 'Fjalla One', sans-serif;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 1.2rem;
+  padding: 0.9rem 2.2rem;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  box-shadow: 0 2px 12px rgba(108,54,189,0.13);
+  transition: background 0.2s, transform 0.2s;
+  outline: none;
+  letter-spacing: 0.04em;
+}
+
+.sendBtn:hover:not(:disabled) {
+  background: linear-gradient(90deg, #232323 60%, #6c36bd 100%);
+  transform: scale(1.04);
+}
+
+.sendBtn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+@media (max-width: 900px) {
+  .contactCard {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem 0.5rem;
+  }
+  .contactLeft {
+    min-width: 0;
+  }
+} 

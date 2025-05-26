@@ -6,6 +6,7 @@ import Projects from '../../Components/Projects/Projects'
 import GitCalendar from '../../Components/GitCalendar/GitCalendar'
 import { Player } from '@lottiefiles/react-lottie-player'
 import landingIntro from '../../assets/Animations/homePageBanner.json'
+import ContactMe from '../../Components/ContactMe/ContactMe';
 
 const Home = () => {
   const [loading, setLoading] = useState(true);
@@ -54,6 +55,7 @@ const Home = () => {
         <section id="experience-section"><WorkExperience /></section>
         <section id="projects-section"><Projects /></section>
         <section id="github-section"><GitCalendar /></section>
+        <section id="contact-section"><ContactMe /></section>
       </div>
     </div>
   )
