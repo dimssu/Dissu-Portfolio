@@ -9,8 +9,9 @@
 }
 
 .contactCard {
-  background: beige;
+  background: #232323;
   border-radius: 2rem;
+  border: 1px solid beige;
   box-shadow: 0 4px 32px rgba(108,54,189,0.10);
   padding: 2.5rem 2rem;
   display: flex;
@@ -21,19 +22,56 @@
   margin: 2rem 0;
 }
 
+.messageSent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding-bottom: 2rem;
+
+  .messageSentText {
+    font-family: 'Fjalla One', sans-serif;
+    font-size: 1.5rem;
+    color: beige;
+    margin-top: 0.5rem;
+    display: block;
+  }
+
+  .messageSentText2 {
+    font-family: 'Dosis', sans-serif;
+    font-size: 1.1rem;
+    color: beige;
+    margin-top: 0.5rem;
+    display: block;
+  }
+
+  .messageSentSubText {
+    font-family: 'Dosis', sans-serif;
+    font-size: 1.1rem;
+    color: beige;
+    margin-top: 0.7rem;
+    margin-bottom: 1.2rem;
+    text-align: center;
+    width: 50%;
+    display: block;
+  }
+}
+
 .contactLeft {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   min-width: 220px;
+  width: 50%;
   gap: 1.2rem;
 }
 
 .contactIntro {
   font-family: 'Fjalla One', sans-serif;
   font-size: 2rem;
-  color: #232323;
+  color: beige;
   text-align: center;
   margin-bottom: 0.5rem;
 }
@@ -41,7 +79,7 @@
 .contactSubIntro {
   font-family: 'Dosis', sans-serif;
   font-size: 1.1rem;
-  color: #6c36bd;
+  color: beige;
   margin-top: 0.5rem;
   display: block;
 }
@@ -96,11 +134,10 @@
 .inputGroup input:focus + label,
 .inputGroup textarea:focus + label,
 .inputGroup .filled + label {
-  top: -0.9rem;
-  left: 0.8rem;
+  top: -1.2rem;
+  left: 0.4rem;
   font-size: 0.95rem;
-  color: #232323;
-  background: beige;
+  color: beige;
   padding: 0 0.4rem;
   border-radius: 0.5rem;
 }
@@ -123,6 +160,7 @@
 
 .sendBtn:hover:not(:disabled) {
   background: linear-gradient(90deg, #232323 60%, #6c36bd 100%);
+  box-shadow: 0 2px 16px rgba(108,54,189,0.5);
   transform: scale(1.04);
 }
 

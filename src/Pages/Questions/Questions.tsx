@@ -15,7 +15,7 @@ const LANGUAGES = [
 
 const QUESTIONS = {
     js: {
-        question: "What will be logged to the console after this code runs, and why?",
+        question: "What will be logged to the console after this code runs?",
         code: `let a = [1, 2, 3];
 let b = a;
 b.push(4);
@@ -29,7 +29,7 @@ console.log(a);`,
         answer: '[1, 2, 3, 4]',
     },
     python: {
-        question: "What will be the output and why?",
+        question: "What will be the output?",
         code: `def func(x, y=[]):
     y.append(x)
     return y
@@ -45,7 +45,7 @@ print(func(2))`,
         answer: '[1]\n[1, 2]',
     },
     cpp: {
-        question: "What will be the output of this code and why?",
+        question: "What will be the output of this code?",
         code: `#include <iostream>
 using namespace std;
 
@@ -66,7 +66,7 @@ int main() {
         answer: '10',
     },
     java: {
-        question: "What will be printed and why?",
+        question: "What will be printed?",
         code: `public class Main {
     public static void main(String[] args) {
         String s1 = "hello";
