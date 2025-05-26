@@ -8,15 +8,17 @@ const Projects = () => {
 
   return (
     <div className={styles.ProjectsContainer}>
-      <div className={styles.ProjectsTitle}>
-        Projects
+      <div className={styles.ProjectsHeader}>
+        <div className={styles.ProjectsTitle}>
+          Projects
+        </div>
+        <button className={styles.ExpandButton} onClick={() => setSearchParams({ showProjects: 'true' })}>
+          View More
+        </button>
       </div>
       <div className={styles.Projects}>
         <ProjectsViewer />
       </div>
-        <button className={styles.ExpandButton} onClick={() => setSearchParams({showProjects: 'true'})}>
-          View More
-        </button>
     </div>
   )
 }
