@@ -29,6 +29,14 @@ const projects = [
     description: "Guru Gang is an interactive learning platform offering courses, quizzes, assignments, and concept battles for students and teachers. It features progress tracking, a distraction-free focus room, and an AI-powered assistant.",
     live: "https://guru-gang.vercel.app"
   },
+  {
+    video: GuruGang,
+    image: "https://placehold.co/400x200/6e5494/fff?text=Guru+Gang",
+    name: "MUM",
+    tech: ["React", "Vite", "TypeScript", "React Router", "SCSS", "Axios", "Day.js", "Toastify"],
+    description: "A modern user management system with authentication, built for efficient user administration and a seamless experience. The app features login, protected routes, and user CRUD operations with responsive design and instant feedback.",
+    live: "https://mum.dimssu.com"
+  },
 ];
 
 const ProjectsList = () => {
