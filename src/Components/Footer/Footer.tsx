@@ -5,7 +5,7 @@ const Footer = () => {
     <div className={styles.FooterContainer}>
       <div className={styles.FooterContent}>
         <div className={styles.FooterText}>
-          <p>© 2025 Dimssu. All rights reserved.</p>
+          <p>© 2025 Aryan Singh. All rights reserved.</p>
         </div>
       </div>
     </div>
