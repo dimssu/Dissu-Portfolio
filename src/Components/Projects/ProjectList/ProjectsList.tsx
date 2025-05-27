@@ -3,6 +3,7 @@ import { FaExternalLinkAlt } from 'react-icons/fa';
 import ChatBot from '../../../assets/ProjectDemoGifs/Chatbot.gif';
 import Mudra from '../../../assets/ProjectDemoGifs/MudraGuide.gif';
 import GuruGang from '../../../assets/ProjectDemoGifs/Gurugang.gif';
+import MUM from '../../../assets/ProjectDemoGifs/Mum.gif';
 
 const projects = [
   {
@@ -30,7 +31,7 @@ const projects = [
     live: "https://guru-gang.vercel.app"
   },
   {
-    video: GuruGang,
+    video: MUM,
     image: "https://placehold.co/400x200/6e5494/fff?text=Guru+Gang",
     name: "MUM",
     tech: ["React", "Vite", "TypeScript", "React Router", "SCSS", "Axios", "Day.js", "Toastify"],
