@@ -64,14 +64,14 @@ const ContactMe = () => {
                         />
                         <div className={styles.messageSentText}>
                             {isRepeat
-                                ? <><span role="img" aria-label="wave">👋</span> Welcome back, code slinger!</>
-                                : <><span role="img" aria-label="party">🎉</span> Message delivered! Your bytes are in my inbox.</>
+                                ? <><span role="img" aria-label="wave">👋</span> Back again, legend!</>
+                                : <><span role="img" aria-label="party">🎉</span> Message sent!</>
                             }
                         </div>
                         <div className={styles.messageSentSubText}>
                             {isRepeat
-                                ? <>Already dropped your wisdom here. If you have more bugs, ideas, or memes, hit me up again!</>
-                                : <>I'll get back to you as soon as I squash my current bugs.<br/>Feel free to send another message or go break production elsewhere! 😎</>
+                                ? <>Drop another line or just vibe. 🚀</>
+                                : <>I'll reply soon. Ship more code or send another!</>
                             }
                         </div>
                         <button
@@ -96,8 +96,8 @@ const ContactMe = () => {
                             <div className={styles.contactIntro}>
                                 <span role="img" aria-label="wave">👋  </span> Let's Connect!<br />
                                 <span className={styles.contactSubIntro}>
-                                    Whether you want to talk code, collab, or just say hi, drop me a message below.<br />
-                                    I promise I don't bite (unless you're a bug 🐞)!
+                                    Let's talk code, collab, or just say hi.<br />
+                                    I only bite bugs. 🐞
                                 </span>
                             </div>
                         </div>
