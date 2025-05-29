@@ -23,14 +23,14 @@ const projects: Project[] = [
   {
     image: Mudra,
     name: "Mudra",
-    tech: ["React.js", "Axios", "dissu-talks", "Vite", "SCSS", "Node", "Typescript", "Express", "MongoDB", "Redis"],
+    tech: ["React", "Axios", "dissu-talks", "Vite", "SCSS", "Node", "Typescript", "Express", "MongoDB", "Redis"],
     description: "Mudra Guide provides integration instructions for Mudra, a secure SSO microservice that generates and validates JWT tokens across your ecosystem.",
     live: "https://mudra-guide.dimssu.com"
   },
   {
     image: GuruGang,
     name: "Guru Gang",
-    tech: ["React", "Vite", "face-api.js", "react-router-dom", "axios", "dissu-talks", "Gemini API", "Node.js", "MongoDb", "CSS"],
+    tech: ["React", "Vite", "face-api.js", "axios", "dissu-talks", "Gemini API", "Node.js", "MongoDb", "CSS"],
     description: "Guru Gang is an interactive learning platform with courses, quizzes, and concept battles.",
     live: "https://guru-gang.dimssu.com"
   },
