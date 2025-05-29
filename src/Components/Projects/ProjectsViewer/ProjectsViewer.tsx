@@ -25,7 +25,7 @@ const projects: Project[] = [
     name: "Mudra",
     tech: ["React.js", "Axios", "dissu-talks", "Vite", "SCSS", "Node", "Typescript", "Express", "MongoDB", "Redis"],
     description: "Mudra Guide provides integration instructions for Mudra, a secure SSO microservice that generates and validates JWT tokens across your ecosystem.",
-    live: "https://mudra-guide.vercel.app"
+    live: "https://mudra-guide.dimssu.com"
   },
   {
     image: GuruGang,

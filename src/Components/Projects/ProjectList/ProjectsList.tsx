@@ -20,7 +20,7 @@ const projects = [
     name: "Mudra",
     tech: ["React.js", "Axios", "dissu-talks", "Vite", "SCSS", "Node.js", "Typescript", "Express.js", "MongoDb", "Redis"],
     description: "Mudra Guide provides comprehensive integration instructions for Mudra, a secure and scalable SSO microservice designed to generate and validate JWT tokens across your ecosystem.",
-    live: "https://mudra-guide.vercel.app"
+    live: "https://mudra-guide.dimssu.com"
   },
   {
     video: GuruGang,
@@ -28,7 +28,7 @@ const projects = [
     name: "Guru Gang",
     tech: ["React", "Vite", "face-api.js", "react-router-dom", "axios", "dissu-talks", "Gemini API", "Node.js", "MongoDb", "CSS"],
     description: "Guru Gang is an interactive learning platform offering courses, quizzes, assignments, and concept battles for students and teachers. It features progress tracking, a distraction-free focus room, and an AI-powered assistant.",
-    live: "https://guru-gang.vercel.app"
+    live: "https://guru-gang.dimssu.com"
   },
   {
     video: MUM,
