@@ -11,12 +11,12 @@ const Projects = () => {
     <div className={styles.ProjectsContainer}>
       <div className={styles.ProjectWrapper}>
         <div className={styles.ProjectsHeader}>
-          <button className={styles.ExpandButton} onClick={() => setSearchParams({ showProjects: 'true', hideNavbar: 'true' })}>
-            View All <span style={{ fontSize: '1.2rem', paddingLeft: '0.5rem' }}><FaArrowUp /></span>
-          </button>
           <div className={styles.ProjectsTitle}>
             Projects
           </div>
+          <button className={styles.ExpandButton} onClick={() => setSearchParams({ showProjects: 'true', hideNavbar: 'true' })}>
+            View All <span style={{ fontSize: '1.2rem', paddingLeft: '0.5rem' }}><FaArrowUp /></span>
+          </button>
         </div>
         <div className={styles.Projects}>
           <ProjectsViewer />
