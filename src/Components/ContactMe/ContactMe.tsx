@@ -90,14 +90,14 @@ const ContactMe = () => {
                         />
                         <div className={styles.messageSentText}>
                             {isRepeat
-                                ? <><span role="img" aria-label="wave">👋</span> Back again, legend!</>
-                                : <><span role="img" aria-label="party">🎉</span> Message sent!</>
+                                ? <><span role="img" aria-label="wave">{contactMeContent.waveEmoji}</span> {contactMeContent.messageSent.repeat}</>
+                                : <><span role="img" aria-label="party">{contactMeContent.partyEmoji}</span> {contactMeContent.messageSent.first}</>
                             }
                         </div>
                         <div className={styles.messageSentSubText}>
                             {isRepeat
-                                ? <>Drop another line or just vibe. 🚀</>
-                                : <>I'll reply soon. Ship more code or send another!</>
+                                ? <>{contactMeContent.messageSent.subRepeat}</>
+                                : <>{contactMeContent.messageSent.subFirst}</>
                             }
                         </div>
                         <button
@@ -107,7 +107,7 @@ const ContactMe = () => {
                                 setSent(false);
                             }}
                         >
-                            {isRepeat ? 'Send More Genius' : 'Send Another Message'}
+                            {isRepeat ? contactMeContent.sendMoreGenius : contactMeContent.sendAnotherMessage}
                         </button>
                     </div>
                 ) : (
@@ -120,10 +120,10 @@ const ContactMe = () => {
                                 style={{ width: '220px', height: '220px' }}
                             />
                             <div className={styles.contactIntro}>
-                                <span role="img" aria-label="wave">👋  </span> Let's Connect!<br />
+                                <span role="img" aria-label="wave">{contactMeContent.waveEmoji}  </span> {contactMeContent.letsConnect}<br />
                                 <span className={styles.contactSubIntro}>
-                                    Let's talk code, collab, or just say hi.<br />
-                                    I only bite bugs. 🐞
+                                    {contactMeContent.contactIntro}<br />
+                                    {contactMeContent.contactSubIntro} {contactMeContent.bugEmoji}
                                 </span>
                             </div>
                         </div>
@@ -142,7 +142,7 @@ const ContactMe = () => {
                                     required
                                     className={form.name ? styles.filled : ''}
                                 />
-                                <label className={form.name ? styles.filled : ''}>Name</label>
+                                <label className={form.name ? styles.filled : ''}>{contactMeContent.form.name}</label>
                             </div>
                             <div className={styles.inputGroup}>
                                 <input
@@ -153,7 +153,7 @@ const ContactMe = () => {
                                     required
                                     className={form.email ? styles.filled : ''}
                                 />
-                                <label className={form.email ? styles.filled : ''}>Email</label>
+                                <label className={form.email ? styles.filled : ''}>{contactMeContent.form.email}</label>
                             </div>
                             <div className={styles.inputGroup}>
                                 <textarea
@@ -164,12 +164,12 @@ const ContactMe = () => {
                                     rows={4}
                                     className={form.message ? styles.filled : ''}
                                 />
-                                <label className={form.message ? styles.filled : ''}>Message</label>
+                                <label className={form.message ? styles.filled : ''}>{contactMeContent.form.message}</label>
                             </div>
                             <button type="submit" className={styles.sendBtn} disabled={sent}>
-                                {sent ? 'Sent! 🚀' : 'Send Message'}
+                                {sent ? contactMeContent.sent : contactMeContent.sendMessage}
                             </button>
-                            {sent && <div className={styles.thankYou}>Thank you! Your message has been sent.</div>}
+                            {sent && <div className={styles.thankYou}>{contactMeContent.thankYou}</div>}
                         </form>
                     </>)}
             </div>
