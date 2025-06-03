@@ -11,6 +11,19 @@ interface ResultProps {
     onSkipOrPass: () => void;
 }
 
+const resultContent = {
+    correct: {
+        title: 'The Bouncer Says, Welcome to the Club!',
+        primaryBtn: 'Play Again',
+        secondaryBtn: 'Enter the Club',
+    },
+    incorrect: {
+        title: 'The Bouncer Says, Stag Entry Not Allowed :(',
+        primaryBtn: 'Try Again',
+        secondaryBtn: 'Bribe Him',
+    },
+};
+
 const Result: React.FC<ResultProps> = ({ isCorrect, onRetry, onSkipOrPass }) => {
     return (
         <div className={styles.resultWrapper}>
