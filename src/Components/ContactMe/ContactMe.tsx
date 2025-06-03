@@ -4,6 +4,32 @@ import { Player } from '@lottiefiles/react-lottie-player';
 import MailAnimation from '../../assets/Animations/MailAnimation.json';
 import MailSent from '../../assets/Animations/MailSent.json';
 
+const contactMeContent = {
+    waveEmoji: '👋',
+    partyEmoji: '🎉',
+    bugEmoji: '🐞',
+    rocketEmoji: '🚀',
+    sendMoreGenius: 'Send More Genius',
+    sendAnotherMessage: 'Send Another Message',
+    sent: 'Sent! 🚀',
+    sendMessage: 'Send Message',
+    thankYou: 'Thank you! Your message has been sent.',
+    letsConnect: "Let's Connect!",
+    contactIntro: "Let's talk code, collab, or just say hi.",
+    contactSubIntro: 'I only bite bugs.',
+    messageSent: {
+        repeat: 'Back again, legend!',
+        first: 'Message sent!',
+        subRepeat: 'Drop another line or just vibe. 🚀',
+        subFirst: 'I\'ll reply soon. Ship more code or send another!',
+    },
+    form: {
+        name: 'Name',
+        email: 'Email',
+        message: 'Message',
+    },
+};
+
 const ContactMe = () => {
     const [form, setForm] = useState({ name: '', email: '', message: '' });
     const [sent, setSent] = useState(false);
