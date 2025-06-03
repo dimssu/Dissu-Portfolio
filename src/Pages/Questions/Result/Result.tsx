@@ -29,17 +29,17 @@ const Result: React.FC<ResultProps> = ({ isCorrect, onRetry, onSkipOrPass }) => 
         <div className={styles.resultWrapper}>
             <div className={styles.resultContent}>
                 <div className={styles.resultTitle}>
-                    {isCorrect ? 'The Bouncer Says, Welcome to the Club!' : 'The Bouncer Says, Stag Entry Not Allowed :('}
+                    {isCorrect ? resultContent.correct.title : resultContent.incorrect.title}
                 </div>
                 <div className={styles.resultGif}>
                     <Player src={isCorrect ? Tick : Cross} loop autoplay style={{ width: '200px', height: '200px' }} />
                 </div>
                 <div className={styles.ctaWrapper}>
                     <button onClick={onRetry} className={styles.primaryBtn}>
-                        {isCorrect ? 'Play Again' : 'Try Again'}
+                        {isCorrect ? resultContent.correct.primaryBtn : resultContent.incorrect.primaryBtn}
                     </button>
                     <button onClick={onSkipOrPass} className={styles.secondaryBtn}>
-                        {isCorrect ? 'Enter the Club' : 'Bribe Him'}
+                        {isCorrect ? resultContent.correct.secondaryBtn : resultContent.incorrect.secondaryBtn}
                     </button>
                 </div>
             </div>
