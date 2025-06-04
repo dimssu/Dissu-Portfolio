@@ -4,7 +4,7 @@ import Result from "./Result/Result";
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import clsx from "clsx";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const LANGUAGES = [
     { label: "JavaScript", value: "js" },
