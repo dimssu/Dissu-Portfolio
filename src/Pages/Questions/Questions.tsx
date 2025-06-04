@@ -17,9 +17,9 @@ const QUESTIONS = {
     js: {
         question: "What will be logged to the console after this code runs?",
         code: `let a = [1, 2, 3];
-let b = a;
-b.push(4);
-console.log(a);`,
+                let b = a;
+                b.push(4);
+                console.log(a);`,
         options: [
             '[1, 2, 3]',
             '[1, 2, 3, 4]',
@@ -31,11 +31,11 @@ console.log(a);`,
     python: {
         question: "What will be the output?",
         code: `def func(x, y=[]):
-    y.append(x)
-    return y
+                    y.append(x)
+                    return y
 
-print(func(1))
-print(func(2))`,
+                print(func(1))
+                print(func(2))`,
         options: [
             '[1]\n[2]',
             '[1]\n[1, 2]',
@@ -47,16 +47,16 @@ print(func(2))`,
     cpp: {
         question: "What will be the output of this code?",
         code: `#include <iostream>
-using namespace std;
+                using namespace std;
 
-void foo(int &x) { x = 10; }
+                void foo(int &x) { x = 10; }
 
-int main() {
-    int a = 5;
-    foo(a);
-    cout << a << endl;
-    return 0;
-}`,
+                int main() {
+                    int a = 5;
+                    foo(a);
+                    cout << a << endl;
+                    return 0;
+                }`,
         options: [
             '5',
             '10',
@@ -68,12 +68,12 @@ int main() {
     java: {
         question: "What will be printed?",
         code: `public class Main {
-    public static void main(String[] args) {
-        String s1 = "hello";
-        String s2 = new String("hello");
-        System.out.println(s1 == s2);
-    }
-}`,
+                public static void main(String[] args) {
+                    String s1 = "hello";
+                    String s2 = new String("hello");
+                    System.out.println(s1 == s2);
+                }
+            }`,
         options: [
             'true',
             'false',
