@@ -133,9 +133,7 @@ const Questions = () => {
                 ) : (
                     <div className={styles.questionsContentWrapper}>
                         <div className={styles.questionsIntro}>
-                            Brace yourself! This place is like a VIP club. Are you on the
-                            guest list or just hoping for a virtual bouncer to give you the
-                            nod?
+                            {questionsTitle}
                         </div>
                         <div className={styles.questionsLeft}>
                             <div className={styles.questionsSelectWrapper}>
