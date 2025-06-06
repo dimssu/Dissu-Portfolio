@@ -13,6 +13,8 @@ const LANGUAGES = [
     { label: "Java", value: "java" },
 ];
 
+const questionsTitle = "Brace yourself! This place is like a VIP club. Are you on the guest list or just hoping for a virtual bouncer to give you the nod?"
+
 const QUESTIONS = {
     js: {
         question: "What will be logged to the console after this code runs?",
