@@ -9,10 +9,10 @@ const projects = [
   {
     video: ChatBot,
     image: "https://placehold.co/400x200/6e5494/fff?text=Dissu+Talks",
-    name: "Dissu Talks",
+    name: "cha-ai",
     tech: ["ReactJs", "Typescript", "clsx", "uuid", "Vite"],
     description: "A React-based chatbot with Context-Aware Assistance that can be embedded into any application, offering seamless integration and customizable UI to match the host platform.",
-    live: "https://dissu-talks.vercel.app"
+    live: "https://cha-ai-demo.dimssu.com"
   },
   {
     video: Mudra,
