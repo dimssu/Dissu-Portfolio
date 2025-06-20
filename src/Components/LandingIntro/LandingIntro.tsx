@@ -64,6 +64,7 @@ const LandingIntro = () => {
                 <div className={styles.SocialLinkWrapper} key={link.platform}>
                   {link.platform === 'Email' ? (
                     <a
+                      id={`social-link-${idx}`}
                       className={styles.SocialLink}
                       href={link.url}
                       onClick={() => {
