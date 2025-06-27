@@ -3,6 +3,15 @@
     width: 100%;
     height: 600px;
     z-index: 1;
+    
+    @media (max-width: 768px) {
+        height: 500px;
+    }
+    
+    @media (max-width: 480px) {
+        height: 450px;
+        min-height: 100vh;
+    }
 }
 
 .LandingIntro {
@@ -24,18 +33,77 @@
     align-items: center;
     justify-content: flex-start;
     height: 100%;
+    padding: 0 1rem;
+    
+    @media (max-width: 768px) {
+        margin-top: 150px;
+        padding: 0 1.5rem;
+        justify-content: center;
+    }
+    
+    @media (max-width: 480px) {
+        margin-top: 100px;
+        padding: 0 1rem;
+        text-align: center;
+    }
     
     .Name {
         font-family: 'Fjalla One', sans-serif;
         font-size: 3rem;
         font-weight: 400;
         color: #fff;
+        text-align: center;
+        margin: 0;
+        
+        h1 {
+            margin: 0;
+            line-height: 1.2;
+        }
+        
+        @media (max-width: 768px) {
+            font-size: 2.5rem;
+        }
+        
+        @media (max-width: 480px) {
+            font-size: 2rem;
+            
+            h1 {
+                line-height: 1.1;
+            }
+        }
+        
+        @media (max-width: 360px) {
+            font-size: 1.8rem;
+        }
     }
 
     .Role {
         font-size: 1.5rem;
         font-family: 'Dosis', sans-serif;
         font-weight: 300;
+        text-align: center;
+        color: #fff;
+        margin-top: 1rem;
+        line-height: 1.4;
+        max-width: 800px;
+        
+        @media (max-width: 768px) {
+            font-size: 1.3rem;
+            margin-top: 0.75rem;
+            max-width: 600px;
+        }
+        
+        @media (max-width: 480px) {
+            font-size: 1.1rem;
+            margin-top: 0.5rem;
+            line-height: 1.3;
+            max-width: 350px;
+        }
+        
+        @media (max-width: 360px) {
+            font-size: 1rem;
+            max-width: 300px;
+        }
     }
 }
 
@@ -54,7 +122,36 @@
   border: none;
   outline: none;
   text-align: center;
+  
+  @media (max-width: 768px) {
+    margin-top: 1.5rem;
+    padding: 0.9rem 2rem;
+    font-size: 1.1rem;
+  }
+  
+  @media (max-width: 480px) {
+    margin-top: 1.25rem;
+    padding: 1rem 1.8rem;
+    font-size: 1rem;
+    min-width: 160px;
+  }
+  
+  @media (max-width: 360px) {
+    padding: 0.9rem 1.5rem;
+    font-size: 0.95rem;
+    min-width: 140px;
+  }
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(110,84,148,0.25);
+  }
+  
+  &:active {
+    transform: translateY(0);
+  }
 }
+
 @keyframes pulse {
   0% { transform: scale(1);}
   50% { transform: scale(1.06);}
@@ -66,10 +163,35 @@
   display: flex;
   gap: 1.5rem;
   justify-content: center;
+  flex-wrap: wrap;
+  
+  @media (max-width: 768px) {
+    margin-top: 1.25rem;
+    gap: 1.25rem;
+  }
+  
+  @media (max-width: 480px) {
+    margin-top: 1rem;
+    gap: 1rem;
+    flex-direction: row;
+    max-width: 350px;
+  }
+  
+  @media (max-width: 360px) {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    max-width: 250px;
+  }
 }
 
 .SocialLinkWrapper {
   display: flex;
+  
+  @media (max-width: 360px) {
+    width: 100%;
+    justify-content: center;
+  }
 }
 
 .SocialLink {
@@ -80,7 +202,7 @@
   color: #fff;
   font-size: 1.3rem;
   text-decoration: none;
-  transition: color 0.2s;
+  transition: color 0.2s, background 0.2s, transform 0.2s;
   font-family: 'Dosis', sans-serif;
   font-weight: 600;
   position: relative;
@@ -90,6 +212,25 @@
   background: rgba(110,84,148,0.16);
   box-shadow: 0 1px 4px rgba(110,84,148,0.08);
   border: 1px solid rgba(110,84,148,0.10);
+  
+  @media (max-width: 768px) {
+    font-size: 1.2rem;
+    padding: 0.4rem 1rem;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 1.1rem;
+    padding: 0.5rem 0.9rem;
+    min-height: 44px; // Touch-friendly minimum height
+  }
+  
+  @media (max-width: 360px) {
+    font-size: 1rem;
+    padding: 0.6rem 1rem;
+    width: 100%;
+    max-width: 200px;
+    justify-content: center;
+  }
 }
 
 .SocialLink:hover {
@@ -97,6 +238,11 @@
   background: #6e5494;
   box-shadow: 0 2px 8px rgba(110,84,148,0.18);
   border: 1px solid #6e5494;
+  transform: translateY(-1px);
+}
+
+.SocialLink:active {
+  transform: translateY(0);
 }
 
 .SocialLink::before {
@@ -124,4 +270,21 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    
+    @media (max-width: 480px) {
+        margin-left: 0.25rem;
+    }
+}
+
+// Email copied feedback styling
+.SocialLink.copied {
+  background: #4CAF50;
+  border-color: #4CAF50;
+  animation: copyFeedback 0.3s ease-out;
+}
+
+@keyframes copyFeedback {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
 }

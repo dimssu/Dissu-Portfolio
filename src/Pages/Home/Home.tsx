@@ -12,8 +12,12 @@ const Home = () => {
   const [loading, setLoading] = useState(true);
   const [showContent, setShowContent] = useState(false);
   const [circlePos, setCirclePos] = useState({ x: window.innerWidth / 2, y: window.innerHeight / 2 });
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
 
   useEffect(() => {
+    // Detect if device supports touch
+    setIsTouchDevice('ontouchstart' in window || navigator.maxTouchPoints > 0);
+    
     const timer = setTimeout(() => {
       setLoading(false);
       setTimeout(() => setShowContent(true), 10); // trigger animation
@@ -22,12 +26,40 @@ const Home = () => {
   }, []);
 
   useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setCirclePos({ x: e.clientX, y: e.clientY });
-    };
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, []);
+    // Only add mouse move listener for non-touch devices
+    if (!isTouchDevice) {
+      const handleMouseMove = (e: MouseEvent) => {
+        setCirclePos({ x: e.clientX, y: e.clientY });
+      };
+      window.addEventListener('mousemove', handleMouseMove);
+      return () => window.removeEventListener('mousemove', handleMouseMove);
+    }
+  }, [isTouchDevice]);
+
+  // Handle touch events for mobile devices
+  useEffect(() => {
+    if (isTouchDevice) {
+      const handleTouchMove = (e: TouchEvent) => {
+        if (e.touches.length > 0) {
+          setCirclePos({ x: e.touches[0]?.clientX || 0, y: e.touches[0]?.clientY || 0 });
+        }
+      };
+      
+      const handleTouchStart = (e: TouchEvent) => {
+        if (e.touches.length > 0) {
+          setCirclePos({ x: e.touches[0]?.clientX || 0, y: e.touches[0]?.clientY || 0 });
+        }
+      };
+
+      window.addEventListener('touchmove', handleTouchMove, { passive: true });
+      window.addEventListener('touchstart', handleTouchStart, { passive: true });
+      
+      return () => {
+        window.removeEventListener('touchmove', handleTouchMove);
+        window.removeEventListener('touchstart', handleTouchStart);
+      };
+    }
+  }, [isTouchDevice]);
 
   if (loading) {
     return (
@@ -36,7 +68,14 @@ const Home = () => {
           src={landingIntro}
           loop
           autoplay
-          style={{ width: '100vw', height: '100vh', opacity: 0.15 }}
+          style={{ 
+            width: '100vw', 
+            height: '100vh', 
+            opacity: 0.15,
+            // Optimize for mobile
+            maxWidth: '100%',
+            objectFit: 'cover'
+          }}
         />
       </div>
     );
@@ -44,12 +83,15 @@ const Home = () => {
 
   return (
     <div className={styles.HomeContainer}>
-      <div
-        className={styles.MouseCircle}
-        style={{
-          transform: `translate3d(${circlePos.x - 100}px, ${circlePos.y - 100}px, 0)`
-        }}
-      />
+      {/* Only show mouse circle on non-touch devices or when specifically interacting */}
+      {!isTouchDevice && (
+        <div
+          className={styles.MouseCircle}
+          style={{
+            transform: `translate3d(${circlePos.x - 100}px, ${circlePos.y - 100}px, 0)`
+          }}
+        />
+      )}
       <div className={`${styles.AnimatedContent} ${showContent ? styles.Clear : styles.Blur}`}>
         <section id="home-section"><LandingIntro /></section>
         <section id="experience-section"><WorkExperience /></section>

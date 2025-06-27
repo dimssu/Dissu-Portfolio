@@ -10,16 +10,125 @@
     color: #fff;
     margin: 3.5rem 0;
 
+    @media (max-width: 1024px) {
+        padding: 3rem 1rem;
+        margin: 3rem 0;
+    }
+
+    @media (max-width: 768px) {
+        padding: 2.5rem 1rem;
+        margin: 2rem 0;
+    }
+
+    @media (max-width: 480px) {
+        padding: 2rem 0.5rem;
+        margin: 1.5rem 0;
+    }
+
+    @media (max-width: 360px) {
+        padding: 1.5rem 0.25rem;
+        margin: 1rem 0;
+    }
 
     h1 {
         font-size: 2rem;
         font-weight: 400;
         font-family: 'Dosis', sans-serif;
+        text-align: center;
+        margin-bottom: 1rem;
+        
+        @media (max-width: 768px) {
+            font-size: 1.75rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        @media (max-width: 480px) {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        @media (max-width: 360px) {
+            font-size: 1.3rem;
+        }
     }
 
     .GitCalendarDescription {
         font-size: 1rem;
         font-family: 'Dosis', sans-serif;
         margin-bottom: 2.5rem;
+        text-align: center;
+        max-width: 600px;
+        line-height: 1.5;
+        
+        @media (max-width: 768px) {
+            font-size: 0.95rem;
+            margin-bottom: 2rem;
+            max-width: 500px;
+            padding: 0 1rem;
+        }
+        
+        @media (max-width: 480px) {
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            max-width: 350px;
+            padding: 0 0.5rem;
+            line-height: 1.4;
+        }
+        
+        @media (max-width: 360px) {
+            font-size: 0.85rem;
+            margin-bottom: 1.25rem;
+            max-width: 300px;
+        }
+    }
+}
+
+// GitHub Calendar responsive wrapper
+.GitCalendarWrapper {
+    width: 100%;
+    max-width: 900px;
+    overflow-x: auto;
+    padding: 0 1rem;
+    
+    @media (max-width: 768px) {
+        max-width: 100%;
+        padding: 0 0.5rem;
+    }
+    
+    @media (max-width: 480px) {
+        padding: 0 0.25rem;
+    }
+    
+    // GitHub calendar component responsive adjustments
+    :global(.react-activity-calendar) {
+        @media (max-width: 768px) {
+            font-size: 12px;
+        }
+        
+        @media (max-width: 480px) {
+            font-size: 10px;
+        }
+        
+        @media (max-width: 360px) {
+            font-size: 9px;
+        }
+    }
+    
+    :global(.react-activity-calendar__scroll-container) {
+        @media (max-width: 768px) {
+            overflow-x: auto;
+            overflow-y: hidden;
+            padding-bottom: 10px;
+        }
+    }
+    
+    :global(.react-activity-calendar__calendar) {
+        @media (max-width: 480px) {
+            min-width: 280px;
+        }
+        
+        @media (max-width: 360px) {
+            min-width: 250px;
+        }
     }
 }

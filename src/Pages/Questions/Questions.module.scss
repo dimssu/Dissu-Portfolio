@@ -5,6 +5,18 @@
     align-items: center;
     justify-content: center;
     font-family: 'Dosis', 'Fjalla One', sans-serif;
+    padding: 1rem;
+    
+    @media (max-width: 768px) {
+        padding: 0.5rem;
+        align-items: flex-start;
+        padding-top: 2rem;
+    }
+    
+    @media (max-width: 480px) {
+        padding: 0.25rem;
+        padding-top: 1.5rem;
+    }
   }
   
   .questionsCard {
@@ -19,6 +31,25 @@
     &.showResult {
       padding: 2rem 0;
     }
+    
+    @media (max-width: 768px) {
+        padding: 1.5rem 1rem;
+        min-width: unset;
+        border-radius: 12px;
+        
+        &.showResult {
+            padding: 1.5rem 0;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        padding: 1rem 0.75rem;
+        border-radius: 8px;
+        
+        &.showResult {
+            padding: 1rem 0;
+        }
+    }
   }
   
   .questionsIntro {
@@ -28,6 +59,18 @@
     color: #232323;
     font-weight: 500;
     margin-bottom: 3rem;
+    
+    @media (max-width: 768px) {
+        font-size: 1.4rem;
+        margin-bottom: 2rem;
+        line-height: 1.4;
+    }
+    
+    @media (max-width: 480px) {
+        font-size: 1.2rem;
+        margin-bottom: 1.5rem;
+        padding: 0 0.5rem;
+    }
   }
   
   .questionsLabel {
@@ -36,10 +79,19 @@
     margin-bottom: 8px;
     margin-left: 4px;
     display: block;
+    
+    @media (max-width: 480px) {
+        font-size: 0.9rem;
+        margin-bottom: 6px;
+    }
   }
   
   .questionsSelectWrapper {
     margin-bottom: 24px;
+    
+    @media (max-width: 768px) {
+        margin-bottom: 1rem;
+    }
   }
   
   .questionsSelect {
@@ -49,6 +101,17 @@
     border: 1px solid #ccc;
     font-size: 18px;
     font-family: inherit;
+    
+    @media (max-width: 768px) {
+        width: 100%;
+        font-size: 16px;
+        padding: 0.5rem;
+    }
+    
+    @media (max-width: 480px) {
+        font-size: 14px;
+        padding: 0.4rem;
+    }
   }
   
   .questionsTitle {
@@ -63,6 +126,21 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    
+    @media (max-width: 768px) {
+        margin-bottom: 1.5rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.75rem;
+        width: 100%;
+        padding: 0 1rem;
+    }
+    
+    @media (max-width: 480px) {
+        margin-bottom: 1rem;
+        gap: 0.5rem;
+        padding: 0 0.5rem;
+    }
   }
   
   .questionsOption {
@@ -81,6 +159,35 @@
   
     input {
       margin-right: 12px;
+    }
+    
+    @media (max-width: 768px) {
+        width: 100%;
+        padding: 0.75rem 0.75rem;
+        font-size: 0.95rem;
+        margin-bottom: 0;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 50px;
+        
+        input {
+            margin-right: 8px;
+            transform: scale(1.1);
+        }
+    }
+    
+    @media (max-width: 480px) {
+        padding: 0.8rem 0.6rem;
+        font-size: 0.85rem;
+        line-height: 1.3;
+        min-height: 45px;
+        
+        input {
+            margin-right: 6px;
+            transform: scale(1.0);
+        }
     }
   }
   
@@ -108,6 +215,19 @@
       cursor: not-allowed;
       opacity: 0.7;
     }
+    
+    @media (max-width: 768px) {
+        width: 50%;
+        font-size: 16px;
+        padding: 0.8rem 1rem;
+        margin-right: 0;
+    }
+    
+    @media (max-width: 480px) {
+        width: 80%;
+        font-size: 15px;
+        padding: 0.75rem;
+    }
   }
 
   .submitBtn {
@@ -120,12 +240,40 @@
     align-items: flex-start;
     justify-content: space-between;
     flex-wrap: wrap;
+    
+    @media (max-width: 768px) {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+    }
+    
+    @media (max-width: 480px) {
+        gap: 1rem;
+    }
+  }
+
+  .questionsCodeWrapper {
+    
+    @media (max-width: 768px) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
   }
   
   .questionsLeft {
     flex: 1 1 400px;
     min-width: 250px;
     border-right: 0.5px solid #232323;
+    
+    @media (max-width: 768px) {
+        flex: 1 1 auto;
+        min-width: unset;
+        border-right: none;
+        border-bottom: 0.5px solid #232323;
+        padding-bottom: 1rem;
+    }
   }
   
   .questionsRight {
@@ -133,12 +281,12 @@
     min-width: 250px;
     padding-left: 1rem;
     padding-top: 2rem;
-  }
-  
-  @media (max-width: 700px) {
-    .questionsContentWrapper {
-      flex-direction: column;
-      gap: 1.5rem;
+    
+    @media (max-width: 768px) {
+        flex: 1 1 auto;
+        min-width: unset;
+        padding-left: 0;
+        padding-top: 0;
     }
   }
   
@@ -148,5 +296,38 @@
     font-weight: 600;
     margin-bottom: 1rem;
     margin-top: 3rem;
+    
+    @media (max-width: 768px) {
+        font-size: 1.1rem;
+        margin-top: 2rem;
+        margin-bottom: 0.75rem;
+    }
+    
+    @media (max-width: 480px) {
+        font-size: 1rem;
+        margin-top: 1.5rem;
+        margin-bottom: 0.5rem;
+        line-height: 1.4;
+    }
+  }
+  
+  // Mobile-specific code block styling
+  @media (max-width: 768px) {
+    :global(.hljs) {
+        font-size: 0.9rem !important;
+        padding: 1rem !important;
+        border-radius: 8px !important;
+        overflow-x: auto;
+        white-space: pre-wrap;
+        word-break: break-word;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    :global(.hljs) {
+        font-size: 0.8rem !important;
+        padding: 0.75rem !important;
+        line-height: 1.4 !important;
+    }
   }
   

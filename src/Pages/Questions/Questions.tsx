@@ -156,7 +156,7 @@ const Questions = () => {
                                     ))}
                                 </select>
                             </div>
-                            <div>
+                            <div className={styles.questionsCodeWrapper}>
                                 <div className={styles.questionsText}>
                                     {QUESTIONS[language as keyof typeof QUESTIONS].question}
                                 </div>
@@ -166,12 +166,18 @@ const Questions = () => {
                                     customStyle={{
                                         width: '85%',
                                         borderRadius: '10px',
-                                        fontSize: '1.1rem',
+                                        fontSize: window.innerWidth <= 768 ? '0.9rem' : window.innerWidth <= 480 ? '0.8rem' : '1.1rem',
                                         margin: '1rem 0 0.5rem 0',
                                         background: '#232323',
                                         color: '#fff',
+                                        overflow: 'auto',
+                                        maxWidth: '100%',
+                                        lineHeight: window.innerWidth <= 480 ? '1.4' : '1.2',
+                                        padding: window.innerWidth <= 768 ? '1rem' : '1.5rem',
                                     }}
                                     showLineNumbers={false}
+                                    wrapLines={true}
+                                    wrapLongLines={true}
                                 >
                                     {QUESTIONS[language as keyof typeof QUESTIONS].code}
                                 </SyntaxHighlighter>

@@ -2,10 +2,23 @@ import { Player } from '@lottiefiles/react-lottie-player'
 import landingIntro from '../../assets/Animations/homePageBanner.json'
 import styles from './LandingIntro.module.scss'
 import { FaEnvelope, FaGithub, FaLinkedin } from "react-icons/fa";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const LandingIntro = () => {
   const [copied, setCopied] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    // Detect mobile device
+    setIsMobile(window.innerWidth <= 768);
+    
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
     const landingIntroContent = {
         name: 'Aryan Singh',
@@ -30,6 +43,41 @@ const LandingIntro = () => {
         ]
     }
 
+  const handleEmailClick = async (e: React.MouseEvent) => {
+    e.preventDefault();
+    
+    const emailUrl = landingIntroContent.socialLinks.find(link => link.platform === 'Email')?.url;
+    
+    try {
+      await navigator.clipboard.writeText('aryansi1126@gmail.com');
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+      
+      // On mobile, also open the email client after copying
+      if (isMobile && emailUrl) {
+        setTimeout(() => {
+          window.location.href = emailUrl;
+        }, 500);
+      }
+    } catch (err) {
+      // Fallback for browsers that don't support clipboard API
+      console.error('Failed to copy email:', err);
+      // Just open email client
+      if (emailUrl) {
+        window.location.href = emailUrl;
+      }
+    }
+  };
+
+  const scrollToProjects = () => {
+    const el = document.getElementById('projects-section');
+    if (el) {
+      const offset = isMobile ? 120 : 150;
+      const y = el.getBoundingClientRect().top + window.pageYOffset - offset;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }
+  };
+
   return (
     <div className={styles.LandingIntroContainer}>
       <div className={styles.LandingIntro}>
@@ -37,7 +85,12 @@ const LandingIntro = () => {
             src={landingIntro}
             loop
             autoplay
-            style={{ width: '100%', height: '100%', opacity: 0.05 }}
+            style={{ 
+              width: '100%', 
+              height: '100%', 
+              opacity: 0.05,
+              objectFit: 'cover'
+            }}
             />
         </div>
         <div className={styles.ContentOverlay}>
@@ -49,13 +102,8 @@ const LandingIntro = () => {
             </div>
             <button
               className={styles.CTAButton}
-              onClick={() => {
-                const el = document.getElementById('projects-section');
-                if (el) {
-                  const y = el.getBoundingClientRect().top + window.pageYOffset - 150;
-                  window.scrollTo({ top: y, behavior: 'smooth' });
-                }
-              }}
+              onClick={scrollToProjects}
+              aria-label="View my work and projects"
             >
               {landingIntroContent.cta}
             </button>
@@ -63,24 +111,22 @@ const LandingIntro = () => {
               {landingIntroContent.socialLinks.map((link, idx) => (
                 <div className={styles.SocialLinkWrapper} key={link.platform}>
                   {link.platform === 'Email' ? (
-                    <a
-                      id={`social-link-${idx}`}
-                      className={styles.SocialLink}
-                      href={link.url}
-                      onClick={() => {
-                        navigator.clipboard.writeText('aryansi1126@gmail.com');
-                        setCopied(true);
-                        setTimeout(() => setCopied(false), 1500);
-                      }}
+                    <button
+                      className={`${styles.SocialLink} ${copied ? styles.copied : ''}`}
+                      onClick={handleEmailClick}
+                      aria-label="Copy email address and open email client"
+                      style={{ border: 'none', background: copied ? '#4CAF50' : 'rgba(110,84,148,0.16)' }}
                     >
-                      {copied ? 'Copied!' : link.platform} <span className={styles.SocialIcon}>{link.icon}</span>
-                    </a>
+                      {copied ? (isMobile ? 'Copied!' : 'Copied! Opening email...') : link.platform} 
+                      <span className={styles.SocialIcon}>{link.icon}</span>
+                    </button>
                   ) : (
                     <a
                       className={styles.SocialLink}
                       href={link.url}
                       target="_blank"
                       rel="noopener noreferrer"
+                      aria-label={`Visit my ${link.platform} profile`}
                     >
                       {link.platform} <span className={styles.SocialIcon}>{link.icon}</span>
                     </a>
