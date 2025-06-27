@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import styles from './Navbar.module.scss';
-import { FaFileDownload } from 'react-icons/fa';
+import { FaFileDownload, FaBars, FaTimes } from 'react-icons/fa';
 import resume from '../../assets/Aryan Resume.pdf';
 
 const NAV_LINKS = [
@@ -17,6 +17,7 @@ const NAVBAR_OFFSET_OTHERS = 150;
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,11 +27,30 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Close mobile menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const navbar = document.querySelector(`.${styles.Navbar}`);
+      if (navbar && !navbar.contains(event.target as Node)) {
+        setMobileMenuOpen(false);
+      }
+    };
+
+    if (mobileMenuOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [mobileMenuOpen]);
+
   const handleNavClick = (target: string) => (e: React.MouseEvent) => {
     e.preventDefault();
 
     if (target === 'download-resume') {
       window.open(resume, '_blank');
+      setMobileMenuOpen(false); // Close mobile menu after action
       return;
     }
 
@@ -39,7 +59,12 @@ const Navbar = () => {
       const offset = (target === 'home-section' || target === 'experience-section') ? NAVBAR_OFFSET_HOME : NAVBAR_OFFSET_OTHERS;
       const y = el.getBoundingClientRect().top + window.pageYOffset - offset;
       window.scrollTo({ top: y, behavior: 'smooth' });
+      setMobileMenuOpen(false); // Close mobile menu after navigation
     }
+  };
+
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(!mobileMenuOpen);
   };
 
   return (
@@ -47,12 +72,37 @@ const Navbar = () => {
       <div className={styles.NavbarLogo}>
         <h1> {'</>'} Aryan Singh</h1>
       </div>
-      <div className={styles.NavbarLinksContainer}>
+      
+      {/* Desktop Navigation */}
+      <div className={`${styles.NavbarLinksContainer} ${styles.DesktopNav}`}>
         {NAV_LINKS.map(link => (
           <a
             key={link.target}
             href={`#${link.target}`}
             className={link.label === 'Resume' ? styles.ResumeLink : styles.NavbarLink}
+            onClick={handleNavClick(link.target)}
+          >
+            {link.label === 'Resume' ? <span>{link.label} <FaFileDownload /></span> : link.label}
+          </a>
+        ))}
+      </div>
+
+      {/* Mobile Hamburger Button */}
+      <button 
+        className={styles.MobileMenuButton}
+        onClick={toggleMobileMenu}
+        aria-label="Toggle mobile menu"
+      >
+        {mobileMenuOpen ? <FaTimes /> : <FaBars />}
+      </button>
+
+      {/* Mobile Navigation Menu */}
+      <div className={`${styles.MobileNav} ${mobileMenuOpen ? styles.MobileNavOpen : ''}`}>
+        {NAV_LINKS.map(link => (
+          <a
+            key={link.target}
+            href={`#${link.target}`}
+            className={link.label === 'Resume' ? styles.MobileResumeLink : styles.MobileNavLink}
             onClick={handleNavClick(link.target)}
           >
             {link.label === 'Resume' ? <span>{link.label} <FaFileDownload /></span> : link.label}
