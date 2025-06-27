@@ -113,6 +113,7 @@ const LandingIntro = () => {
                   {link.platform === 'Email' ? (
                     <button
                       className={`${styles.SocialLink} ${copied ? styles.copied : ''}`}
+                      id={`${link.platform}-${idx}`}
                       onClick={handleEmailClick}
                       aria-label="Copy email address and open email client"
                       style={{ border: 'none', background: copied ? '#4CAF50' : 'rgba(110,84,148,0.16)' }}
