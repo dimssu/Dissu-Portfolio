@@ -12,7 +12,7 @@ const projects = [
     name: "cha-ai",
     tech: ["ReactJs", "Typescript", "clsx", "uuid", "Vite"],
     description: "A React-based chatbot with Context-Aware Assistance that can be embedded into any application, offering seamless integration and customizable UI to match the host platform.",
-    live: "https://cha-ai-demo.dimssu.com"
+    live: "https://cha-ai.dimssu.com/"
   },
   {
     video: Mudra,
