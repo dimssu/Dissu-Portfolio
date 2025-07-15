@@ -19,8 +19,8 @@ const GitCalendar = () => {
 
     const gitCalendarContent = {
         title: "GitHub Calendar",
-        description: "If you see blank, just know I code on a different account in office!! :)",
-        username: "dimssu"
+        // description: "If you see blank, just know I code on a different account in office!! :)",
+        username: "fl-aryan"
     }
 
     // Mobile-optimized calendar props
@@ -39,9 +39,9 @@ const GitCalendar = () => {
     return (
         <div className={styles.GitCalendarContainer}>
             <h1>{gitCalendarContent.title}</h1>
-            <div className={styles.GitCalendarDescription}>
+            {/* <div className={styles.GitCalendarDescription}>
                 {gitCalendarContent.description}
-            </div>
+            </div> */}
             <div className={styles.GitCalendarWrapper}>
                 <GitHubCalendar {...calendarProps} />
             </div>
