@@ -7,8 +7,12 @@ import GitCalendar from '../../Components/GitCalendar/GitCalendar'
 import { Player } from '@lottiefiles/react-lottie-player'
 import landingIntro from '../../assets/Animations/homePageBanner.json'
 import ContactMe from '../../Components/ContactMe/ContactMe';
+import { useQuizModal } from '../../context/QuizModalContext';
+import OpenSource from '../../Components/OpenSource/OpenSource';
+import ResumeBackground from '../../Components/ResumeBackground/ResumeBackground';
 
 const Home = () => {
+  const { scheduleQuizTeaser } = useQuizModal();
   const [loading, setLoading] = useState(true);
   const [showContent, setShowContent] = useState(false);
   const [circlePos, setCirclePos] = useState({ x: window.innerWidth / 2, y: window.innerHeight / 2 });
@@ -24,6 +28,13 @@ const Home = () => {
     }, 1000);
     return () => clearTimeout(timer);
   }, []);
+
+  useEffect(() => {
+    if (!loading) {
+      const cancel = scheduleQuizTeaser();
+      return typeof cancel === 'function' ? cancel : undefined;
+    }
+  }, [loading, scheduleQuizTeaser]);
 
   useEffect(() => {
     // Only add mouse move listener for non-touch devices
@@ -95,8 +106,10 @@ const Home = () => {
       <div className={`${styles.AnimatedContent} ${showContent ? styles.Clear : styles.Blur}`}>
         <section id="home-section"><LandingIntro /></section>
         <section id="experience-section"><WorkExperience /></section>
+        <section id="opensource-section"><OpenSource /></section>
         <section id="projects-section"><Projects /></section>
         <section id="github-section"><GitCalendar /></section>
+        <section id="background-section"><ResumeBackground /></section>
         <section id="contact-section"><ContactMe /></section>
       </div>
     </div>

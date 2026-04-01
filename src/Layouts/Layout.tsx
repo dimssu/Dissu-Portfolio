@@ -3,6 +3,7 @@ import Navbar from '../Components/NavBar/Navbar';
 import { Outlet, useSearchParams } from 'react-router-dom';
 import BottomDrawer from './BottomDrawer/BottomDrawer';
 import { useEffect, useState } from 'react';
+import { QuizModalProvider } from '../context/QuizModalContext';
 
 const Layout = () => {
   const [searchParams] = useSearchParams();
@@ -17,26 +18,28 @@ const Layout = () => {
   }, [searchParams]);
 
   return (
-    <div style={{ 
-      display: 'flex', 
-      flexDirection: 'column', 
-      minHeight: '100vh',
-      position: 'relative',
-      // Ensure proper spacing on mobile devices
-      paddingTop: hideNavbar ? '0' : window.innerWidth <= 768 ? '120px' : '100px'
-    }}>
-      {!hideNavbar && <Navbar />}
-      <main style={{ 
-        flex: 1,
-        width: '100%',
-        // Prevent horizontal scroll on mobile
-        overflowX: 'hidden'
+    <QuizModalProvider>
+      <div style={{ 
+        display: 'flex', 
+        flexDirection: 'column', 
+        minHeight: '100vh',
+        position: 'relative',
+        // Ensure proper spacing on mobile devices
+        paddingTop: hideNavbar ? '0' : window.innerWidth <= 768 ? '120px' : '100px'
       }}>
-        <Outlet />
-      </main>
-      <Footer />
-      <BottomDrawer />
-    </div>
+        {!hideNavbar && <Navbar />}
+        <main style={{ 
+          flex: 1,
+          width: '100%',
+          // Prevent horizontal scroll on mobile
+          overflowX: 'hidden'
+        }}>
+          <Outlet />
+        </main>
+        <Footer />
+        <BottomDrawer />
+      </div>
+    </QuizModalProvider>
   );
 };
 

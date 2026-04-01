@@ -1,8 +1,11 @@
-import { useState, useEffect } from "react";
-import styles from "./ProjectsViewer.module.scss";
+import { useState, useEffect } from 'react';
+import styles from './ProjectsViewer.module.scss';
 import ChatBot from '../../../assets/ProjectDemoGifs/Chatbot.gif';
 import Mudra from '../../../assets/ProjectDemoGifs/MudraGuide.gif';
 import GuruGang from '../../../assets/ProjectDemoGifs/Gurugang.gif';
+
+const natakPreview =
+  'https://placehold.co/640x360/2a2340/ffffff?text=Natak+TV&font=raleway';
 
 type Project = {
   image: string;
@@ -14,25 +17,43 @@ type Project = {
 
 const projects: Project[] = [
   {
+    image: natakPreview,
+    name: 'Natak (Natak TV)',
+    tech: [
+      'Expo',
+      'React Native',
+      'react-native-webview',
+      'React Navigation',
+      'Google Sign-In',
+      'Expo Secure Store',
+    ],
+    description:
+      'Shipped as a mobile app using Expo: a native shell that hosts the existing web experience inside a WebView. Native Google Sign-In with secure token storage; bridged session into the WebView by syncing tokens into web localStorage, plus bidirectional logout signaling via postMessage for a consistent app session.',
+    live: 'https://app.nataktv.com/',
+  },
+  {
     image: ChatBot,
-    name: "cha-ai",
-    tech: ["ReactJs", "Typescript", "clsx", "uuid", "Vite"],
-    description: "A React-based chatbot with Context-Aware Assistance that can be embedded into any application, offering seamless integration and customizable UI to match the host platform.",
-    live: "https://cha-ai.dimssu.com/"
+    name: 'cha-ai',
+    tech: ['TypeScript', 'clsx', 'Vite', 'react-markdown', 'remark-gfm'],
+    description:
+      'Versatile, easily integrable chatbot package: a React-based chatbot with context-aware assistance that can be embedded into any application, offering seamless integration and customizable UI to match the host platform.',
+    live: 'https://cha-ai.dimssu.com/',
   },
   {
     image: Mudra,
-    name: "Mudra",
-    tech: ["React", "Axios", "dissu-talks", "Vite", "SCSS", "Node", "Typescript", "Express", "MongoDB", "Redis"],
-    description: "Mudra Guide provides integration instructions for Mudra, a secure SSO microservice that generates and validates JWT tokens across your ecosystem.",
-    live: "https://mudra-guide.dimssu.com"
+    name: 'Mudra',
+    tech: ['React.js', 'Axios', 'dissu-talks', 'Vite', 'SCSS', 'Node.js', 'TypeScript', 'Express.js', 'MongoDB', 'Redis'],
+    description:
+      'Mudra Guide provides comprehensive integration instructions for Mudra, a secure and scalable SSO microservice designed to generate and validate JWT tokens across your ecosystem. Helps developers implement robust authentication in distributed applications.',
+    live: 'https://mudra-guide.dimssu.com',
   },
   {
     image: GuruGang,
-    name: "Guru Gang",
-    tech: ["React", "Vite", "face-api.js", "axios", "dissu-talks", "Gemini API", "Node.js", "MongoDb", "CSS"],
-    description: "Guru Gang is an interactive learning platform with courses, quizzes, and concept battles.",
-    live: "https://guru-gang.dimssu.com"
+    name: 'Guru Gang',
+    tech: ['React', 'Vite', 'face-api.js', 'react-router-dom', 'axios', 'dissu-talks', 'Gemini API', 'Node.js', 'MongoDB', 'CSS'],
+    description:
+      'Interactive learning platform offering courses, quizzes, assignments, and concept battles for students and teachers. Features progress tracking, a distraction-free focus room, and an AI-powered assistant to enhance the educational experience.',
+    live: 'https://guru-gang.dimssu.com',
   },
 ];
 
@@ -98,12 +119,7 @@ const ProjectsViewer = () => {
             ))}
           </div>
           <p className={styles.Description}>{description}</p>
-          <a
-            href={live}
-            className={styles.LiveLink}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a href={live} className={styles.LiveLink} target="_blank" rel="noopener noreferrer">
             Live ↗
           </a>
         </div>

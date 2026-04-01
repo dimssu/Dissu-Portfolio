@@ -8,23 +8,23 @@ import Bouncer from '../../../assets/PNG/Bouncer.png';
 interface ResultProps {
     isCorrect: boolean;
     onRetry: () => void;
-    onSkipOrPass: () => void;
+    onDismiss: () => void;
 }
 
 const resultContent = {
     correct: {
         title: 'The Bouncer Says, Welcome to the Club!',
         primaryBtn: 'Play Again',
-        secondaryBtn: 'Enter the Club',
+        secondaryBtn: 'Close',
     },
     incorrect: {
         title: 'The Bouncer Says, Stag Entry Not Allowed :(',
         primaryBtn: 'Try Again',
-        secondaryBtn: 'Bribe Him',
+        secondaryBtn: 'Close',
     },
 };
 
-const Result: React.FC<ResultProps> = ({ isCorrect, onRetry, onSkipOrPass }) => {
+const Result: React.FC<ResultProps> = ({ isCorrect, onRetry, onDismiss }) => {
     return (
         <div className={styles.resultWrapper}>
             <div className={styles.resultContent}>
@@ -38,7 +38,7 @@ const Result: React.FC<ResultProps> = ({ isCorrect, onRetry, onSkipOrPass }) => 
                     <button onClick={onRetry} className={styles.primaryBtn}>
                         {isCorrect ? resultContent.correct.primaryBtn : resultContent.incorrect.primaryBtn}
                     </button>
-                    <button onClick={onSkipOrPass} className={styles.secondaryBtn}>
+                    <button onClick={onDismiss} className={styles.secondaryBtn}>
                         {isCorrect ? resultContent.correct.secondaryBtn : resultContent.incorrect.secondaryBtn}
                     </button>
                 </div>

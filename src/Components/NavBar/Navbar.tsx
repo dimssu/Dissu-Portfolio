@@ -2,20 +2,25 @@ import { useEffect, useState } from 'react';
 import styles from './Navbar.module.scss';
 import { FaFileDownload, FaBars, FaTimes } from 'react-icons/fa';
 import resume from '../../assets/Aryan Resume.pdf';
+import { useQuizModal } from '../../context/QuizModalContext';
 
 const NAV_LINKS = [
   { label: 'Home', target: 'home-section' },
   { label: 'Experience', target: 'experience-section' },
+  { label: 'Open Source', target: 'opensource-section' },
   { label: 'Projects', target: 'projects-section' },
   { label: 'GitHub', target: 'github-section' },
+  { label: 'Background', target: 'background-section' },
   { label: 'Contact', target: 'contact-section' },
+  { label: 'Quiz', target: 'open-quiz' },
   { label: 'Resume', target: 'download-resume' },
-];
+] as const;
 
 const NAVBAR_OFFSET_HOME = 220;
 const NAVBAR_OFFSET_OTHERS = 150;
 
 const Navbar = () => {
+  const { openGame } = useQuizModal();
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -54,9 +59,21 @@ const Navbar = () => {
       return;
     }
 
+    if (target === 'open-quiz') {
+      openGame();
+      setMobileMenuOpen(false);
+      return;
+    }
+
     const el = document.getElementById(target);
     if (el) {
-      const offset = (target === 'home-section' || target === 'experience-section') ? NAVBAR_OFFSET_HOME : NAVBAR_OFFSET_OTHERS;
+      const offset =
+        target === 'home-section' ||
+        target === 'experience-section' ||
+        target === 'opensource-section' ||
+        target === 'background-section'
+          ? NAVBAR_OFFSET_HOME
+          : NAVBAR_OFFSET_OTHERS;
       const y = el.getBoundingClientRect().top + window.pageYOffset - offset;
       window.scrollTo({ top: y, behavior: 'smooth' });
       setMobileMenuOpen(false); // Close mobile menu after navigation

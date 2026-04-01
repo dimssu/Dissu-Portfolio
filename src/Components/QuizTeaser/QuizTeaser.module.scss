@@ -1,0 +1,118 @@
+.teaser {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 9990;
+  max-width: min(300px, calc(100vw - 2rem));
+  font-family: 'Dosis', 'Fjalla One', sans-serif;
+  border-radius: 14px;
+  border: 1px solid rgba(110, 84, 148, 0.55);
+  background: rgba(28, 28, 32, 0.94);
+  box-shadow:
+    0 0 0 1px rgba(0, 255, 204, 0.12),
+    0 12px 40px rgba(0, 0, 0, 0.45);
+  padding: 1rem 2.25rem 1rem 1rem;
+  animation: teaserEnter 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+  pointer-events: auto;
+}
+
+@keyframes teaserEnter {
+  from {
+    opacity: 0;
+    transform: translate(12px, 16px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+}
+
+.dismiss {
+  position: absolute;
+  top: 0.4rem;
+  right: 0.4rem;
+  width: 1.75rem;
+  height: 1.75rem;
+  border: none;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 1.25rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s, background 0.2s;
+
+  &:hover {
+    color: #fff;
+    background: rgba(110, 84, 148, 0.35);
+  }
+}
+
+.kicker {
+  font-family: 'Fjalla One', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #00ffcc;
+  margin-bottom: 0.35rem;
+  animation: kickerPulse 2.8s ease-in-out infinite;
+}
+
+@keyframes kickerPulse {
+  0%,
+  100% {
+    opacity: 0.85;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.headline {
+  font-family: 'Fjalla One', sans-serif;
+  font-size: 1.15rem;
+  line-height: 1.25;
+  color: #fff;
+  margin: 0 0 0.4rem;
+}
+
+.sub {
+  font-size: 0.9rem;
+  line-height: 1.45;
+  color: rgba(255, 255, 255, 0.72);
+  margin: 0 0 0.85rem;
+}
+
+.cta {
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+  padding: 0.55rem 0.85rem;
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  background: linear-gradient(135deg, #6c36bd 0%, #6e5494 100%);
+  color: #fff;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(108, 54, 189, 0.4);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 480px) {
+  .teaser {
+    right: 0.75rem;
+    bottom: 0.75rem;
+    max-width: calc(100vw - 1.5rem);
+  }
+}

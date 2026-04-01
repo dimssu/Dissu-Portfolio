@@ -1,0 +1,109 @@
+.background {
+  max-width: 1200px;
+  margin: 0 auto 10rem;
+  padding: 0 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.title {
+  font-family: 'Fjalla One', sans-serif;
+  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  color: #fff;
+  text-align: center;
+  margin-bottom: 2.5rem;
+  letter-spacing: 0.02em;
+}
+
+.block {
+  background: rgba(35, 35, 35, 0.75);
+  border-radius: 12px;
+  padding: 1.75rem 2rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid rgba(110, 84, 148, 0.25);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
+}
+
+.subtitle {
+  font-family: 'Fjalla One', sans-serif;
+  font-size: 1.35rem;
+  color: #00ffcc;
+  margin: 0 0 1rem;
+  font-weight: 400;
+}
+
+.skillsLine {
+  font-family: 'Dosis', sans-serif;
+  font-size: 1.15rem;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.88);
+  margin: 0 0 1rem;
+  font-weight: 300;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.label {
+  display: block;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 0.35rem;
+  font-size: 1rem;
+}
+
+.educationCard {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.eduMain {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.eduSchool {
+  font-family: 'Fjalla One', sans-serif;
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+.eduDegree {
+  font-family: 'Dosis', sans-serif;
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.75);
+  font-weight: 300;
+}
+
+.eduMeta {
+  font-family: 'Dosis', sans-serif;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.65);
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  text-align: right;
+
+  @media (max-width: 600px) {
+    text-align: left;
+  }
+}
+
+.achievements {
+  margin: 0;
+  padding-left: 1.25rem;
+  font-family: 'Dosis', sans-serif;
+  font-size: 1.2rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.88);
+  font-weight: 300;
+
+  li {
+    margin-bottom: 0.5rem;
+  }
+}
